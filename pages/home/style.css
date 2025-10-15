@@ -1,3 +1,13 @@
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -15,16 +25,6 @@
   color: #ffffff;
 }
 
-.home-main {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-}
-
 .intro-section h1 {
   font-size: 2.8rem;
   margin-bottom: 0.5rem;
@@ -38,12 +38,12 @@
   margin-bottom: 3rem;
 }
 
-.page-navigation {
+#page-navigation {
   display: flex;
   gap: 1.5rem;
 }
 
-.nav-button {
+#page-navigation a {
   display: inline-block;
   padding: 12px 28px;
   border: 1px solid #6c5ce7;
@@ -56,7 +56,7 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.nav-button:hover {
+#page-navigation a.nav-button:hover {
   background-color: #6c5ce7;
   color: #ffffff;
 }
