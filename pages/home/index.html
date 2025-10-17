@@ -7,12 +7,12 @@
       name="description"
       content="Um site dedicado a explorar o impacto do engajamento negativo na saúde mental."
     />
-
     <title>Mente Conectada - Início</title>
 
     <link rel="stylesheet" href="../../assets/css/constants.css" />
     <link rel="stylesheet" href="../../assets/css/main.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="modal.css" />
 
     <script src="../../assets/js/main.js" defer></script>
   </head>
@@ -41,7 +41,7 @@
       </section>
 
       <nav id="page-navigation">
-        <a>Nosso Feed</a>
+        <a id="feed-link">Nosso Feed</a>
         <a>Informações Adicionais</a>
         <a>Nosso Trabalho</a>
       </nav>
@@ -53,5 +53,21 @@
         Todos os direitos reservados.
       </p>
     </footer>
+
+    <div id="modal-overlay">
+      <div id="modal-content">
+        <h2>Confirmação</h2>
+        <p>
+          Este é um teste social para analisar o comportamento de engajamento.
+          Deseja prosseguir?
+        </p>
+        <div id="modal-buttons">
+          <button id="cancel-btn">Cancelar</button>
+          <button id="confirm-btn">Prosseguir</button>
+        </div>
+      </div>
+    </div>
   </body>
+
+  <script src="script.js" defer></script>
 </html>
