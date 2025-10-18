@@ -17,6 +17,43 @@ main h1 {
   color: var(--color-text-subtle);
 }
 
+main a {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid var(--color-accent);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main a:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
+}
+
+button {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid var(--color-accent);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
+}
+
 label {
   font-weight: bold;
   font-size: 1.8rem;
@@ -33,6 +70,7 @@ label {
   border-radius: 5px;
   background-color: transparent;
   color: var(--color-text-subtle);
+  text-decoration: none;
   font-size: 1rem;
   font-family: var(--font-family-sans);
 }
@@ -46,6 +84,7 @@ label {
   border-radius: 5px;
   background-color: transparent;
   color: var(--color-text-subtle);
+  text-decoration: none;
   font-size: 1rem;
   font-family: var(--font-family-sans);
 }
