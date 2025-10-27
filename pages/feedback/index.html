@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Um site dedicado a explorar o impacto do engajamento negativo na saúde mental."
+    />
+
+    <title>Mente Conectada - Feedback</title>
+
+    <link rel="stylesheet" href="../../assets/css/constants.css" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="../../assets/js/main.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        <a href="../home/index.html" title="Voltar para a página inicial">
+          Mente Conectada
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../about/index.html">Sobre Nós</a></li>
+          <li><a href="index.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="intro-section">
+        <h1>Feedback</h1>
+        <p>
+          Sinta-se à vontade para compartilhar comentários, sugestões ou
+          críticas construtivas para a nossa equipe. Ao preencher o formulário,
+          redirecionaremos você para o seu cliente de email padrão, onde um email
+          com nossos endereços como destinatários será gerado.
+        </p>
+      </section>
+
+      <section id="form-section">
+        <form>
+          <label for="feedback-subject">Assunto</label>
+          <input
+            type="text"
+            id="feedback-subject"
+            name="subject"
+            placeholder="Assunto"
+          />
+          <label for="feedback-body">Corpo da Mensagem</label>
+          <textarea
+            id="feedback-body"
+            name="feedback"
+            rows="10"
+            cols="50"
+            placeholder="Escreva seu feedback aqui..."
+          ></textarea>
+          <button type="button" onclick="enviarFeedback()">Enviar</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; <span id="current-year"></span> Thiago dos Santos Marcelino.
+        Todos os direitos reservados.
+      </p>
+    </footer>
+  </body>
+</html>

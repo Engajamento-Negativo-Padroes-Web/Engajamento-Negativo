@@ -1,0 +1,51 @@
+main {
+  padding: 20px 100px;
+  max-width: 1500px;
+  align-self: center;
+}
+
+main h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+#intro-section p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-text-subtle);
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: var(--color-text-primary);
+  margin-top: 150px;
+}
+
+#feedback-subject {
+  margin-bottom: 20px;
+  width: 100%;
+  display: inline-block;
+  padding: 20px 20px;
+  border: 1px solid var(--color-text-subtle);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--color-text-subtle);
+  font-size: 1rem;
+  font-family: var(--font-family-sans);
+}
+
+#feedback-body {
+  margin-bottom: 20px;
+  width: 100%;
+  display: inline-block;
+  padding: 20px 20px;
+  border: 1px solid var(--color-text-subtle);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--color-text-subtle);
+  font-size: 1rem;
+  font-family: var(--font-family-sans);
+}
