@@ -1,0 +1,85 @@
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem;
+    gap: 3rem;
+    width: 100%;
+    max-width: 900px;
+    align-self: center;
+}
+
+main h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-primary);
+}
+
+* {
+    font-family: Nunito, sans-serif;
+}
+
+main a[href*="github.com"] {
+    text-decoration: none;
+    color: inherit;
+}
+
+.profile-card {
+    color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+
+    width: 250px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.profile-card h3 {
+    font-size: 1rem;
+    margin: 0;
+    text-align: center;
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+}
+
+.profile-git-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.profile-git-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+#last {
+    margin-bottom: 3rem;
+}
