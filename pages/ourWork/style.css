@@ -1,0 +1,107 @@
+/* ===== Página rola normalmente + footer no fim ===== */
+html, body { height: 100%; }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1 0 auto; }
+
+/* ===== Container igual à Home ===== */
+.container {
+  width: min(1200px, 100% - 48px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.75rem;
+}
+
+/* Hero (espelhando a Home) */
+#intro-section h1 {
+  font-size: 2.8rem;
+  margin: 1.25rem 0 .5rem;
+  color: var(--color-text-primary);
+}
+#intro-section p {
+  font-size: 1.1rem;
+  color: var(--color-text-subtle);
+}
+
+/* Botões/links como na Home */
+#page-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+#page-navigation a {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid var(--color-accent);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#page-navigation a:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
+}
+
+/* Seção do Gantt (não altera gantt.css) */
+.gantt-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2.5rem;
+}
+
+/* Título visual da seção escondido (evita duplicar “Cronograma do Projeto”) */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Garantia: se algum CSS antigo fixou o footer, desfaz aqui */
+footer { position: static !important; margin-top: auto; }
+/* ===== Deixa o Gantt branco, sem mexer no resto do site ===== */
+/* ===== Letras pretas no Gantt branco ===== */
+/* ---- Força tema CLARO dentro do Gantt ---- */
+.gantt-root .card,
+.gantt-root .grid-static,
+.gantt-root .card-header,
+.gantt-root .header-grid {
+  background: #fff !important;
+  border-color: #E5E7EB !important;
+}
+
+/* Texto PRETO em tudo que é relevante do card */
+.gantt-root,
+.gantt-root * {
+  color: #111827 !important;
+}
+
+/* Pílulas/legenda e badges com fundo claro */
+.gantt-root .legend-item,
+.gantt-root .month-badge,
+.gantt-root .tw-badge {
+  background: #fff !important;
+  border-color: #E5E7EB !important;
+}
+
+/* Coluna “Tarefas” clara */
+.gantt-root .task-chip {
+  background: #F3F4F6 !important;
+  color: #111827 !important;
+  border-color: #E5E7EB !important;
+}
+.gantt-root .head-tasks {
+  background: #fff !important;
+  color: #111827 !important;
+  border-color: #E5E7EB !important;
+}
+
+/* Faixas semanais sobre branco */
+.gantt-root .wk-col      { background:#fff !important;   border-left:1px solid #E5E7EB !important; }
+.gantt-root .wk-col.alt  { background:#F8FAFC !important; }
