@@ -3,15 +3,40 @@ const modalOverlay = document.getElementById("modal-overlay");
 const confirmBtn = document.getElementById("confirm-btn");
 const cancelBtn = document.getElementById("cancel-btn");
 
-function openModal() {
-  if (modalOverlay) {
-    modalOverlay.style.display = "flex";
+let previouslyFocusedElement = null;
+
+function handleModalKeydown(event) {
+  if (event.key === "Escape") {
+    closeModal();
   }
 }
 
+function openModal() {
+  if (!modalOverlay) {
+    return;
+  }
+
+  previouslyFocusedElement = document.activeElement;
+  modalOverlay.style.display = "flex";
+
+  if (confirmBtn) {
+    confirmBtn.focus();
+  }
+
+  document.addEventListener("keydown", handleModalKeydown);
+}
+
 function closeModal() {
-  if (modalOverlay) {
-    modalOverlay.style.display = "none";
+  if (!modalOverlay) {
+    return;
+  }
+
+  modalOverlay.style.display = "none";
+  document.removeEventListener("keydown", handleModalKeydown);
+
+  if (previouslyFocusedElement) {
+    previouslyFocusedElement.focus();
+    previouslyFocusedElement = null;
   }
 }
 
