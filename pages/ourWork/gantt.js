@@ -16,12 +16,8 @@ sampleTasks.sort((a, b) =>
   a.nome.localeCompare(b.nome)
 );
 
-// Faixa fixa (pode sobrescrever via window.__VISIBLE_RANGE__ antes de carregar este arquivo)
 const VISIBLE_RANGE = window.__VISIBLE_RANGE__ || { start: '2025-10-01', end: '2025-11-30' };
 
-// =========================
-// Paleta (derivada do --color-accent do seu tema)
-// =========================
 const PERSON_COLORS = {};
 const getCssVar = (name, fallback) =>
   (getComputedStyle(document.documentElement).getPropertyValue(name) || '').trim() || fallback;
