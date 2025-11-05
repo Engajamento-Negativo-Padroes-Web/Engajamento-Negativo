@@ -21,7 +21,7 @@ main h1 {
     font-family: Nunito, sans-serif;
 }
 
-main a[href*="github.com"] {
+main a {
     text-decoration: none;
     color: inherit;
 }
@@ -80,6 +80,68 @@ main a[href*="github.com"] {
     width: 100%;
 }
 
-#last {
+#prof-profile-card {
+    color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+
+    width: 250px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    transition: width 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
     margin-bottom: 3rem;
+}
+
+#prof-profile-card:hover {
+    width: 500px;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    align-items: flex-start;
+}
+
+#prof-profile-card:hover > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+#prof-profile-card:hover h3 {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+#prof-profile-card:hover #prof-description {
+    display: block;
+    flex: 1;
+    min-width: 200px; 
+}
+
+#prof-profile-card:hover #prof-description {
+    display: block;
+}
+
+#prof-profile-card h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#prof-profile-card img {    
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+}
+
+#prof-description {
+    display: none;
 }
