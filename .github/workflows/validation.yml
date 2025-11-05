@@ -1,0 +1,33 @@
+name: W3C Validation (HTML & CSS)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Run W3C HTML Validator (v.nu)
+        uses: nu-validator/github-action@v1
+        with:
+          level: 'error'
+          
+          files: './**/*.html'
+
+      - name: Run W3C CSS Validator
+        uses: JMP-M-T/w3c-css-validator-action@v4
+        with:
+          path: './'
