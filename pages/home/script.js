@@ -37,5 +37,9 @@ if (modalOverlay) {
 if (confirmBtn) {
   confirmBtn.addEventListener("click", () => {
     closeModal();
+
+    if (nossoFeedLink && nossoFeedLink.href) {
+      window.location.href = nossoFeedLink.href;
+    }
   });
 }
