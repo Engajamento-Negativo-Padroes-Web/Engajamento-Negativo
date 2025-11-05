@@ -1,4 +1,4 @@
-// ====== Seus dados (com ordenação por início, depois fim, depois nome) ======
+// ====== Dados (com ordenação por início, depois fim, depois nome) ======
 const sampleTasks = [
  // { nome: 'Especificação do projeto', inicio: '2025-09-01', fim: '2025-09-20', responsavel: 'Todos' },
   { nome: 'Configuração do ambiente', inicio: '2025-10-15', fim: '2025-10-18', responsavel: 'Artur Yamada e Thiago Marcelino' },
