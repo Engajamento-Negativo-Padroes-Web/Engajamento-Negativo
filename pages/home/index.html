@@ -56,8 +56,13 @@
     </footer>
 
     <div id="modal-overlay">
-      <div id="modal-content">
-        <h2>Confirmação</h2>
+      <div
+        id="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <h2 id="modal-title">Confirmação</h2>
         <p>
           Este é um teste social para analisar o comportamento de engajamento.
           Deseja prosseguir?
