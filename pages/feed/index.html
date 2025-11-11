@@ -27,42 +27,36 @@
       <nav>
         <ul>
           <li><a href="../about/index.html">Sobre Nós</a></li>
-          <li><a href="index.html">Feedback</a></li>
+          <li><a href="../feedback/index.html">Feedback</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <section id="intro-section">
-        <h1>Feedback</h1>
-        <p>
-          Sinta-se à vontade para compartilhar comentários, sugestões ou
-          críticas construtivas para a nossa equipe. Ao preencher o formulário,
-          redirecionaremos você para o seu cliente de email padrão, onde um email
-          com nossos endereços como destinatários será gerado.
-        </p>
+      <section id="feed_body">
+        <!-- populado dinamincamente -->
+          <p style="color: red;">
+            Para ter mais controle do foco do usuário, a ideia serria mostrar apenas 
+          </p>
+          <p style="color: red;">
+            um post por vez focado e suavemente centralizar na tela quando possível.
+          </p>
+          <p style="color: red;">
+            Exemplo de posts desfocados:
+          </p>
+        <div class="post blur">
+          <h2>Autor do Post</h2>
+          <p class="post_conteudo">
+            Conteúdo do post
+          </p>
+          <div class="post_interacoes">
+            <span class="interacao likes">👍 0</span>
+            <span class="interacao dislikes">👎 0</span>
+            <span class="interacao comentarios">💬 0</span>
+          </div>
+        </div>
       </section>
-
-      <section id="form-section">
-        <form>
-          <label for="feedback-subject">Assunto</label>
-          <input
-            type="text"
-            id="feedback-subject"
-            name="subject"
-            placeholder="Assunto"
-          />
-          <label for="feedback-body">Corpo da Mensagem</label>
-          <textarea
-            id="feedback-body"
-            name="feedback"
-            rows="10"
-            cols="50"
-            placeholder="Escreva seu feedback aqui..."
-          ></textarea>
-          <button type="button" onclick="enviarFeedback()">Enviar</button>
-        </form>
-      </section>
+      <button id="botao_resultado" type="button" onclick="irParaResultado()">Ver Resultado</button>
     </main>
 
     <footer>
