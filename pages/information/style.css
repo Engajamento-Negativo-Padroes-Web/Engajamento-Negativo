@@ -9,10 +9,10 @@ main {
 }
 
 img {
-    width: 80%;
-    border-radius: 20px;
-    display: block;
-    margin: 10px auto;
+  width: 80%;
+  border-radius: 20px;
+  display: block;
+  margin: 10px auto;
 }
 
 #additional-content {
