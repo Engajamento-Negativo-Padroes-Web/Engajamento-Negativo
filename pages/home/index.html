@@ -7,15 +7,16 @@
       name="description"
       content="Um site dedicado a explorar o impacto do engajamento negativo na saúde mental."
     />
-
     <title>Mente Conectada - Início</title>
 
     <link rel="stylesheet" href="../../assets/css/constants.css" />
     <link rel="stylesheet" href="../../assets/css/main.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="modal.css" />
 
     <script src="../../assets/js/main.js" defer></script>
   </head>
+
   <body>
     <header>
       <div id="logo">
@@ -25,8 +26,8 @@
       </div>
       <nav>
         <ul>
-          <li><a>Sobre Nós</a></li>
-          <li><a href="../feedback/index.html">Feedback</a></li>
+          <li><a href="../about">Sobre Nós</a></li>
+          <li><a href="../feedback">Feedback</a></li>
         </ul>
       </nav>
     </header>
@@ -41,17 +42,38 @@
       </section>
 
       <nav id="page-navigation">
-        <a>Nosso Feed</a>
-        <a>Informações Adicionais</a>
-        <a href="../ourWork/index.html">Nosso Trabalho</a>
+        <a id="feed-link" href="../feed">Nosso Feed</a>
+        <a href="../information">Informações Adicionais</a>
+        <a href="../work">Nosso Trabalho</a>
       </nav>
     </main>
 
     <footer>
       <p>
-        &copy; <span id="current-year"></span> Thiago dos Santos Marcelino.
-        Todos os direitos reservados.
+        &copy; <span id="current-year"></span> Mente Conectada. Todos os
+        direitos reservados.
       </p>
     </footer>
+
+    <div id="modal-overlay">
+      <div
+        id="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <h2 id="modal-title">Confirmação</h2>
+        <p>
+          Este é um experiência interativa para analisar o comportamento de
+          engajamento. Deseja prosseguir?
+        </p>
+        <div id="modal-buttons">
+          <button id="cancel-btn">Cancelar</button>
+          <button id="confirm-btn">Prosseguir</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
   </body>
 </html>
