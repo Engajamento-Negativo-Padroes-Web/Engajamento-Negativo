@@ -157,7 +157,7 @@ function popularFeed(posts) {
 
 function irParaResultado() {
     // TODO passar estatisticas para pagina de resultado (localStorage?)
-    window.location.href = "../resultado/index.html";
+    window.location.href = "../results/index.html";
 }
 
 
