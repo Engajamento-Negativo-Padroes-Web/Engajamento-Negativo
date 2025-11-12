@@ -20,13 +20,13 @@
   <body>
     <header>
       <div id="logo">
-        <a href="../home/index.html" title="Voltar para a página inicial">
+        <a href="../home" title="Voltar para a página inicial">
           Mente Conectada
         </a>
       </div>
       <nav>
         <ul>
-          <li><a href="../about/index.html">Sobre Nós</a></li>
+          <li><a href="../about-us">Sobre Nós</a></li>
           <li><a href="index.html">Feedback</a></li>
         </ul>
       </nav>
@@ -38,37 +38,35 @@
         <p>
           Sinta-se à vontade para compartilhar comentários, sugestões ou
           críticas construtivas para a nossa equipe. Ao preencher o formulário,
-          redirecionaremos você para o seu cliente de email padrão, onde um email
-          com nossos endereços como destinatários será gerado.
+          redirecionaremos você para o seu cliente de email padrão, onde um
+          email com nossos endereços como destinatários será gerado.
         </p>
       </section>
 
-      <section id="form-section">
-        <form>
-          <label for="feedback-subject">Assunto</label>
-          <input
-            type="text"
-            id="feedback-subject"
-            name="subject"
-            placeholder="Assunto"
-          />
-          <label for="feedback-body">Corpo da Mensagem</label>
-          <textarea
-            id="feedback-body"
-            name="feedback"
-            rows="10"
-            cols="50"
-            placeholder="Escreva seu feedback aqui..."
-          ></textarea>
-          <button type="button" onclick="enviarFeedback()">Enviar</button>
-        </form>
-      </section>
+      <form>
+        <label for="feedback-subject">Assunto</label>
+        <input
+          type="text"
+          id="feedback-subject"
+          name="subject"
+          placeholder="Assunto"
+        />
+        <label for="feedback-body">Corpo da Mensagem</label>
+        <textarea
+          id="feedback-body"
+          name="feedback"
+          rows="10"
+          cols="50"
+          placeholder="Escreva seu feedback aqui..."
+        ></textarea>
+        <button type="button" onclick="enviarFeedback()">Enviar</button>
+      </form>
     </main>
 
     <footer>
       <p>
-        &copy; <span id="current-year"></span> Thiago dos Santos Marcelino.
-        Todos os direitos reservados.
+        &copy; <span id="current-year"></span> Mente Conectada. Todos os
+        direitos reservados.
       </p>
     </footer>
   </body>
