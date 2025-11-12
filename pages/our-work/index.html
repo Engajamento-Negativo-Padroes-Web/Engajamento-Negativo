@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cronograma do Projeto</title>
+
+    <link rel="stylesheet" href="../../assets/css/constants.css" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <link rel="stylesheet" href="gantt.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="../../assets/js/main.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <div id="logo">
+        <a href="../home/index.html" title="Voltar para a página inicial">
+          Mente Conectada
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../about/index.html">Sobre Nós</a></li>
+          <li><a href="../feedback/index.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <section id="intro-section">
+          <h1>Cronograma do Projeto</h1>
+          <p>Cronograma das entregas e progresso do projeto.</p>
+        </section>
+      </div>
+
+      <!-- ======= DIAGRAMA –======= -->
+      <section class="gantt-section" aria-labelledby="cronograma-title">
+        <h2 id="cronograma-title" class="sr-only">Cronograma do Projeto</h2>
+
+        <div class="wrapper gantt-root">
+          <div class="card">
+            <div class="card-header">
+              <div class="title">
+                Desenvolvimento de atividades (Set-Nov: 13 semanas)
+              </div>
+              <div class="legend" id="legend"></div>
+            </div>
+            <div class="grid-static" id="gantt">
+              <div id="header" class="header-grid"></div>
+              <div id="body" class="body-grid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= FIM DO DIAGRAMA ======= -->
+    </main>
+
+    <footer>
+      <p>
+        &copy; <span id="current-year"></span> Mente Conectada. Todos os
+        direitos reservados.
+      </p>
+    </footer>
+
+    <script src="gantt.js" defer></script>
+  </body>
+</html>
