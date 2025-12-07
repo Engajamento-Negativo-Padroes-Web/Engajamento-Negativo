@@ -141,3 +141,75 @@ main a {
 #prof-description {
   display: none;
 }
+
+/*
+  procure pelo seu ID abaixo 
+  adicione sua animação ou estilo dentro do bloco :hover.
+  usar foto local | salve sua imagem em 'img/seunome.jpeg'.
+*/
+#artur-card {
+  transition: all 0.3s ease;
+}
+
+#artur-card:hover {
+
+}
+
+#eduardo-card {
+  transition: all 0.3s ease;
+}
+
+#eduardo-card:hover {
+
+}
+
+#leticia-card {
+  transition: all 0.3s ease;
+}
+
+#leticia-card:hover {
+
+}
+
+#roberto-card {
+  transition: all 0.3s ease;
+}
+
+#roberto-card:hover {
+
+}
+
+#thiago-card {
+  transition: all 0.3s ease;
+}
+
+#thiago-card:hover {
+
+}
+
+
+
+
+#vinicius-card {
+  position: relative;
+  z-index: 1;
+  background: var(--color-background); 
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#vinicius-card:hover {
+  transform: translateY(-5px);
+  background-image: linear-gradient(90deg, #ffffff 50%, transparent 50%), linear-gradient(90deg, #ffffff 50%, transparent 50%), linear-gradient(0deg, #ffffff 50%, transparent 50%), linear-gradient(0deg, #ffffff 50%, transparent 50%);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 15px 2px, 15px 2px, 2px 15px, 2px 15px;
+  background-position: 0px 0px, 100% 100%, 0px 100%, 100% 0px;
+  animation: border-dance 4s linear infinite;
+  z-index: 10;
+}
+
+#vinicius-card:hover .profile-img {
+  transform: rotate(360deg);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
