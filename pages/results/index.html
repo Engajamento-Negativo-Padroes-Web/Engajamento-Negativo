@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Resultados da análise de comportamento." />
+    <title>Mente Conectada - Seus Resultados</title>
 
+    <link rel="stylesheet" href="../../assets/css/constants.css" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <link rel="stylesheet" href="style.css" />
+    
+    <script src="../../assets/js/main.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <div id="logo">
+        <a href="../../index.html">Mente Conectada</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../about-us">Sobre Nós</a></li>
+          <li><a href="../feedback">Feedback</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="results-intro">
+        <h1>Análise de Comportamento</h1>
+        <p>Baseado na sua navegação pelo feed, aqui está o impacto estimado.</p>
+      </section>
+
+      <section class="dashboard-grid">
+        
+        <article class="stat-card">
+          <h3>Tempo de Foco Perdido</h3>
+          <div class="stat-value" id="time-wasted">0 min</div>
+          <p class="stat-desc">Tempo gasto consumindo conteúdo negativo.</p>
+        </article>
+
+        <article class="stat-card">
+          <h3>Nível de Estresse Estimado</h3>
+          <div class="progress-container">
+            <div class="progress-bar" style="width: 0%" data-width="85%"></div>
+          </div>
+          <p class="stat-desc">Alta exposição a gatilhos emocionais.</p>
+        </article>
+
+        <article class="stat-card">
+          <h3>Conteúdo Consumido</h3>
+          <ul class="stat-list">
+            <li>🔴 70% Notícias Negativas</li>
+            <li>🟡 20% Discussões Políticas</li>
+            <li>🟢 10% Conteúdo Neutro</li>
+          </ul>
+        </article>
+
+        <article class="stat-card highlight-card">
+          <h3>Índice de "Doomscrolling"</h3>
+          <div class="score-circle">
+            <span id="score-value">0</span>/10
+          </div>
+          <p class="stat-desc">Tendência a buscar más notícias compulsivamente.</p>
+        </article>
+
+      </section>
+
+      <nav class="action-area">
+        <a href="../information/index.html" class="btn-primary">Entenda o porquê disso</a>
+        <a href="../home/index.html" class="btn-secondary">Voltar ao Início</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="current-year"></span> Mente Conectada.</p>
+    </footer>
+  </body>
+</html>
