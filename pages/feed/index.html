@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Um site dedicado a explorar o impacto do engajamento negativo na saúde mental."
+    />
+
+    <title>Mente Conectada - Feedback</title>
+
+    <link rel="stylesheet" href="../../assets/css/constants.css" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="../../assets/js/main.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        <a href="../home/index.html" title="Voltar para a página inicial">
+          Mente Conectada
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../about/index.html">Sobre Nós</a></li>
+          <li><a href="../feedback/index.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="feed_body">
+        <div class="post blur">
+          <h2>Autor do Post</h2>
+          <p class="post_conteudo">Conteúdo do post</p>
+          <div class="post_interacoes">
+            <span class="interacao likes">👍 0</span>
+            <span class="interacao dislikes">👎 0</span>
+            <span class="interacao comentarios">💬 0</span>
+          </div>
+        </div>
+      </section>
+
+      <button id="result-button" type="button" onclick="goToResults()">
+        Ver Resultado
+      </button>
+    </main>
+
+    <footer>
+      <p>
+        &copy; <span id="current-year"></span> Mente Conectada. Todos os
+        direitos reservados.
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "type": "short_text",
+      "author": "João Silva",
+      "content": "Que dia lindo! ☀️",
+      "likes": 42,
+      "dislikes": 2,
+      "comments": 5,
+      "classification": "positive"
+    },
+    {
+      "id": 2,
+      "type": "image",
+      "author": "Pedro Costa",
+      "content": "Ninguém me da credito nessa joça. Novo dashboard finalizado, metas atingidas, prazos cumpridos, e nada, NADA, NADAAAAA",
+      "image": {
+        "src": "empresa.png",
+        "alt": "Foto de uma empresa ao fundo com um gesto obsceno direcionado a ela",
+        "blur": false
+      },
+      "likes": 95,
+      "dislikes": 45,
+      "comments": 12,
+      "classification": "negative"
+    },
+    {
+      "id": 3,
+      "type": "video",
+      "author": "Ana Oliveira",
+      "content": "Gatinho Brincando Com Seu Mouse De Brinquedo",
+      "video": {
+        "src": "gatinho.mp4",
+        "type": "video/mp4"
+      },
+      "likes": 10,
+      "dislikes": 3,
+      "comments": 45,
+      "classification": "positive"
+    },
+    {
+      "id": 4,
+      "type": "long_text",
+      "author": "Maria Santos",
+      "content": "Após meses de dedicação e esforço, finalmente consegui terminar meu projeto de conclusão de curso. Foi uma jornada desafiadora, mas muito gratificante. Aprendi não apenas sobre a tecnologia, mas também sobre persistência e trabalho em equipe. Agradeço a todos que me apoiaram nesta trajetória! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at volutpat neque. Mauris porttitor quis massa non imperdiet. Maecenas ultrices volutpat est non vestibulum. Sed vel lorem ex. Sed cursus venenatis vestibulum. Suspendisse suscipit neque quis cursus facilisis. Aenean in enim in massa imperdiet consequat. Quisque velit leo, gravida at libero eu, condimentum porttitor ligula. Vivamus velit lacus, dignissim ac erat vel, vulputate lobortis justo. Donec cursus justo enim, eu blandit urna vestibulum a. Suspendisse potenti.",
+      "likes": 128,
+      "dislikes": 10,
+      "comments": 23,
+      "classification": "positive"
+    },
+    {
+      "id": 5,
+      "type": "link",
+      "author": "Carlos Mendes",
+      "content": "Já estava na hora mesmo, esse mundo não tem mais salvação, principalmente com essa geração TikTok",
+      "link": {
+        "url": "https://theonion.com/breaking-the-darkness-returns/",
+        "titulo": "All 6 Branches Of Armed Forces Present At Arrest Of Undocumented Nanny",
+        "image": "TheDarkness.png"
+      },
+      "likes": 1562,
+      "dislikes": 1268,
+      "comments": 34,
+      "classification": "negative"
+    },
+    {
+      "id": 7,
+      "type": "image",
+      "author": "Jose Correia",
+      "content": "Que desastre! Inacreditável que esse tipo de coisa ainda acontece hoje em dia 😡",
+      "image": {
+        "src": "desastre.png",
+        "alt": "image ilustrativa de desastre",
+        "blur": true
+      },
+      "likes": 95,
+      "dislikes": 45,
+      "comments": 12,
+      "classification": "negative"
+    }
+  ]
+}
