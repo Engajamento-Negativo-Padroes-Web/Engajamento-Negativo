@@ -17,16 +17,18 @@ const statistics = {
 };
 
 function toggleContent(content, button, classification) {
+  statistics.interaction[classification] += 1;
+
   if (button.textContent === "Ver mais") {
-    statistics.interaction[classification] += 1;
     content.classList.remove("hideContent");
     content.classList.add("showContent");
     button.textContent = "Ver menos";
-  } else {
-    content.classList.remove("showContent");
-    content.classList.add("hideContent");
-    button.textContent = "Ver mais";
+    return;
   }
+
+  content.classList.remove("showContent");
+  content.classList.add("hideContent");
+  button.textContent = "Ver mais";
 }
 
 function toggleImage(image, container, classification, blur) {
@@ -139,7 +141,7 @@ function longTextPost(postElement, post) {
   postElement.appendChild(content);
 
   const expandButton = document.createElement("button");
-  expandButton.textContent = "See more";
+  expandButton.textContent = "Ver mais";
   expandButton.onclick = () =>
     toggleContent(content, expandButton, post.classification);
   postElement.appendChild(expandButton);
