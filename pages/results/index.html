@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Resultados da análise de comportamento." />
     <title>Mente Conectada - Seus Resultados</title>
 
     <link rel="stylesheet" href="../../assets/css/constants.css" />
@@ -20,8 +21,8 @@
       </div>
       <nav>
         <ul>
-          <li><a href="../about-us">Sobre Nós</a></li>
-          <li><a href="../feedback">Feedback</a></li>
+          <li><a href="../about-us/index.html">Sobre Nós</a></li>
+          <li><a href="../feedback/index.html">Feedback</a></li>
         </ul>
       </nav>
     </header>
@@ -33,45 +34,43 @@
       </section>
 
       <section class="dashboard-grid">
-        
-       <article class="stat-card">
+        <article class="stat-card">
           <h3>Tempo de Foco Perdido</h3>
           <div class="stat-value" id="time-wasted">0 seg</div>
-          <p class="stat-desc">Tempo gasto consumindo conteúdo negativo.</p>
+          <p class="stat-desc">Tempo gasto consumindo conteúdo.</p>
         </article>
 
-        <div class="stat-card">
+        <article class="stat-card">
           <h3>Nível de Estresse Estimado</h3>
           <div class="progress-container">
-            <div class="progress-bar" style="width: 0%" data-width="85%"></div>
+            <div class="progress-bar" style="width: 0%"></div>
           </div>
-          <p class="stat-desc">Alta exposição a gatilhos emocionais.</p>
-        </div>
+          <p class="stat-desc">Baseado na toxicidade do conteúdo.</p>
+        </article>
 
-        <div class="stat-card">
+        <article class="stat-card">
           <h3>Conteúdo Consumido</h3>
           <ul class="stat-list">
-            <li>🔴 70% Notícias Negativas</li>
-            <li>🟡 20% Discussões Políticas</li>
-            <li>🟢 10% Conteúdo Neutro</li>
+            <li><span aria-hidden="true">🔴</span> 0% Conteúdo Negativo</li>
+            <li><span aria-hidden="true">🟡</span> 0% Conteúdo Positivo</li>
+            <li><span aria-hidden="true">🟢</span> 0% Conteúdo Neutro</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="stat-card highlight-card">
+        <article class="stat-card highlight-card">
           <h3>Índice de "Doomscrolling"</h3>
           <div class="score-circle">
-            <span id="score-value">0</span>/10
+            <span id="score-value">0</span>
           </div>
-          <p class="stat-desc">Tendência a buscar más notícias compulsivamente.</p>
-        </div>
+          <p class="stat-desc">Porcentagem do seu engajamento que foi negativo.</p>
+        </article>
 
       </section>
 
-      <div class="action-area">
+      <nav class="action-area">
         <a href="../information/index.html" class="btn-primary">Entenda o porquê disso</a>
-        
         <a href="../home/index.html" class="btn-secondary">Voltar ao Início</a>
-      </div>
+      </nav>
     </main>
 
     <footer>
