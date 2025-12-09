@@ -33,7 +33,7 @@
       "imagem": {
         "src": "empresa.png",
         "alt": "Escritório corporativo depressivo",
-        "blur": false
+        "blur": true
       },
       "likes": 95,
       "dislikes": 45,
@@ -171,6 +171,209 @@
       "likes": 220,
       "dislikes": 1,
       "comentarios": 15,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 15,
+      "tipo": "imagem",
+      "autor": "Plantão Notícias",
+      "conteudo": "CENA DE CRIME CHOCANTE: Marcas de sangue espalhadas por todo o chão da cozinha. A violência urbana chegou dentro das nossas casas! Imagens proibidas para menores. 🩸🔪",
+      "imagem": {
+        "src": "ketchup_chao.jpg",
+        "alt": "Vidro de ketchup quebrado no chão da cozinha",
+        "blur": true
+      },
+      "likes": 2300,
+      "dislikes": 50,
+      "comentarios": 412,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 16,
+      "tipo": "texto_curto",
+      "autor": "Dev Júnior",
+      "conteudo": "Alguém sabe me dizer se é normal chorar no banheiro da empresa na primeira semana ou devo esperar o período de experiência acabar? 🤡 #vidadejúnior #socorro",
+      "likes": 56,
+      "dislikes": 2,
+      "comentarios": 15,
+      "classificacao": "neutro"
+    },
+    {
+      "id": 17,
+      "tipo": "imagem",
+      "autor": "Mundo Animal Selvagem",
+      "conteudo": "ATAQUE FEROZ: Besta indomável mostra suas presas afiadas pronta para estraçalhar sua presa. A natureza não tem piedade! Cuidado ao abrir essa imagem! 🐺🦷",
+      "imagem": {
+        "src": "filhote_bocejo.jpg",
+        "alt": "Filhote de Golden Retriever bocejando",
+        "blur": true
+      },
+      "likes": 8900,
+      "dislikes": 12,
+      "comentarios": 600,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 18,
+      "tipo": "texto_curto",
+      "autor": "Luciano Empreendedor",
+      "conteudo": "Enquanto você assiste série, eu estou construindo meu império. Enquanto você dorme, eu estou otimizando meu mindset. O sucesso não aceita preguiça. Se você não tem um Ferrari aos 20 anos, a culpa é sua. 👊💸",
+      "likes": 15,
+      "dislikes": 1500,
+      "comentarios": 340,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 19,
+      "tipo": "imagem",
+      "autor": "Alerta Tragédia",
+      "conteudo": "DESASTRE AÉREO: Aeronave cai e pega fogo ficando completamente destruída. Não houve sobreviventes. As imagens dos destroços são de partir o coração. ✈️💥",
+      "imagem": {
+        "src": "aviao_papel.jpg",
+        "alt": "Avião de papel amassado no tapete",
+        "blur": true
+      },
+      "likes": 45,
+      "dislikes": 5,
+      "comentarios": 8,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 20,
+      "tipo": "texto_longo",
+      "autor": "Mariana Tech Recruiter",
+      "conteudo": "Estou cansada de ver candidatos reclamando de testes técnicos. Gente, pedir para desenvolver um clone do Uber em 48h é o MÍNIMO para avaliar resiliência. Querem moleza? Mastiguem água. O mercado seleciona os fortes! #recrutamento #ti",
+      "likes": 30,
+      "dislikes": 890,
+      "comentarios": 230,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 21,
+      "tipo": "imagem",
+      "autor": "Cidadão Preocupado",
+      "conteudo": "CATÁSTROFE AMBIENTAL: Deslizamento de terra massivo soterra área verde. O impacto no ecossistema local será irreversível. Até quando vamos ignorar os sinais? 🌱⚠️",
+      "imagem": {
+        "src": "vaso_planta_caido.jpg",
+        "alt": "Vaso de planta tombado no chao com terra espalhada",
+        "blur": true
+      },
+      "likes": 120,
+      "dislikes": 2,
+      "comentarios": 25,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 22,
+      "tipo": "link",
+      "autor": "Nelipe Nelsons",
+      "conteudo": "Vocês não vão acreditar no que descobriram sobre o café. Depois de ler isso, nunca mais tomei. É veneno puro! ☕☠️",
+      "link": {
+        "url": "https://site-duvidoso-saude.com",
+        "titulo": "Café causa crescimento de terceiro braço segundo estudo de Harvard (Mentira)"
+      },
+      "likes": 12,
+      "dislikes": 450,
+      "comentarios": 89,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 23,
+      "tipo": "imagem",
+      "autor": "Investigação Criminal",
+      "conteudo": "Vítima é encontrada presa em dispositivo de confinamento de alta segurança, sem chance de fuga. O olhar de desespero diz tudo. Compartilhem para ajudar! ⛓️😭",
+      "imagem": {
+        "src": "gato_caixa_papelao.jpg",
+        "alt": "Gato sentado confortavelmente dentro de uma caixa de papelão pequena",
+        "blur": true
+      },
+      "likes": 3400,
+      "dislikes": 0,
+      "comentarios": 150,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 24,
+      "tipo": "texto_curto",
+      "autor": "Café & Poesia",
+      "conteudo": "Nada como o cheirinho de chuva numa tarde de domingo. Que a semana de vocês seja leve e produtiva. 🌧️📚",
+      "likes": 560,
+      "dislikes": 0,
+      "comentarios": 34,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 25,
+      "tipo": "imagem",
+      "autor": "Jornal do Bairro",
+      "conteudo": "GRAVÍSSIMO: Estrutura colapsa e deixa feridos graves no local. Equipes de resgate lutam contra o tempo. Cena de guerra no tapete da sala! 🏗️🚑",
+      "imagem": {
+        "src": "torre_jenga_caida.jpg",
+        "alt": "Torre de Jenga desmoronada",
+        "blur": true
+      },
+      "likes": 88,
+      "dislikes": 12,
+      "comentarios": 10,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 26,
+      "tipo": "texto_curto",
+      "autor": "Bruno System",
+      "conteudo": "Alguém recomenda uma cadeira ergonômica que custe menos que um rim? Minha coluna de 25 anos parece de 80. Aceito links! 🪑👴",
+      "likes": 45,
+      "dislikes": 0,
+      "comentarios": 78,
+      "classificacao": "neutro"
+    },
+    {
+      "id": 27,
+      "tipo": "imagem",
+      "autor": "Denúncia Online",
+      "conteudo": "ARMAS BIOLÓGICAS? Substância verde tóxica encontrada em ambiente de trabalho corporativo. O risco de contaminação é altíssimo. Evacuem a área! ☣️🤢",
+      "imagem": {
+        "src": "pao_mofado.jpg",
+        "alt": "Pão esquecido na geladeira mofado",
+        "blur": true
+      },
+      "likes": 560,
+      "dislikes": 30,
+      "comentarios": 120,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 28,
+      "tipo": "link",
+      "autor": "Tech News Daily",
+      "conteudo": "A singularidade chegou? Novo modelo de IA escreve código melhor que 99% dos humanos  e começa a demitir seus criadores. Leia antes que apaguem.",
+      "link": {
+        "url": "https://future-tech-scare.com",
+        "titulo": "O fim da programação como conhecemos: Adeus devs"
+      },
+      "likes": 2300,
+      "dislikes": 150,
+      "comentarios": 890,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 29,
+      "tipo": "texto_curto",
+      "autor": "Relatos de Gentileza",
+      "conteudo": "Hoje perdi minha carteira no ônibus com todo meu salário do mês. Cheguei em casa desesperado e... tocaram a campainha. Um rapaz achou, pegou meu endereço no RG e veio me entregar. Não aceitou nem um centavo de recompensa. Ainda existe gente boa no mundo! ❤️🙏",
+      "likes": 3420,
+      "dislikes": 0,
+      "comentarios": 150,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 30,
+      "tipo": "texto_curto",
+      "autor": "Vó Maria",
+      "conteudo": "Bom dia meus netinhos virtuais! Hoje fiz aquele bolo de fubá que vocês gostam. Se pudesse, mandava um pedaço pelo Wi-Fi para cada um. Deus abençoe! 🍰👵",
+      "likes": 8500,
+      "dislikes": 0,
+      "comentarios": 450,
       "classificacao": "positivo"
     }
   ]
