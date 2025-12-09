@@ -291,10 +291,14 @@ main a {
 #leticia-card:hover {}
 
 #roberto-card {
-  transition: all 0.3s ease;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
 }
 
-#roberto-card:hover {}
+#roberto-card:hover {
+  transform: rotateY(360deg);
+  border: #fff 2px solid;
+}
 
 #thiago-card {
   transition: all 0.3s ease;
