@@ -28,53 +28,109 @@
     </header>
 
     <main>
-      <section class="results-intro">
-        <h1>Análise de Comportamento</h1>
-        <p>Baseado na sua navegação pelo feed, aqui está o impacto estimado.</p>
-      </section>
+      <div class="results-container">
+        <h1>Seus Resultados</h1>
+        <div class="divider"></div>
 
-      <section class="dashboard-grid">
-        <article class="stat-card">
-          <h3>Tempo de Foco Perdido</h3>
-          <div class="stat-value" id="time-wasted">0 seg</div>
-          <p class="stat-desc">Tempo gasto consumindo conteúdo.</p>
-        </article>
-
-        <article class="stat-card">
-          <h3>Nível de Estresse Estimado</h3>
-          <div class="progress-container">
-            <div class="progress-bar" style="width: 0%"></div>
+        <section class="top-stats">
+          
+          <div class="stat-box">
+            <div class="big-circle">
+              <span id="score-value">0.0</span>
+            </div>
+            <h3>Índice de Bem-estar</h3>
+            <p>Seu saldo líquido de interações (-10 a +10).</p>
           </div>
-          <p class="stat-desc">Baseado na toxicidade do conteúdo.</p>
-        </article>
 
-        <article class="stat-card">
-          <h3>Conteúdo Consumido</h3>
-          <ul class="stat-list">
-            <li><span aria-hidden="true">🔴</span> 0% Conteúdo Negativo</li>
-            <li><span aria-hidden="true">🟡</span> 0% Conteúdo Positivo</li>
-            <li><span aria-hidden="true">🟢</span> 0% Conteúdo Neutro</li>
-          </ul>
-        </article>
-
-        <article class="stat-card highlight-card">
-          <h3>Índice de "Doomscrolling"</h3>
-          <div class="score-circle">
-            <span id="score-value">0</span>
+          <div class="stat-box">
+            <div class="big-square">
+              <span id="time-wasted">0 seg</span>
+            </div>
+            <h3>Tempo de Foco Perdido</h3>
+            <p>Tempo investido no feed.</p>
           </div>
-          <p class="stat-desc">Porcentagem do seu engajamento que foi negativo.</p>
-        </article>
 
-      </section>
+        </section>
 
-      <nav class="action-area">
-        <a href="../information/index.html" class="btn-primary">Entenda o porquê disso</a>
-        <a href="../home/index.html" class="btn-secondary">Voltar ao Início</a>
-      </nav>
+        <section class="middle-stats">
+          <h3>Seu Consumo</h3>
+          
+          <div class="chart-wrapper">
+            <div class="donut-chart-container">
+              <div class="donut-chart" id="consumption-chart">
+                <div class="center-hole">
+                  <span id="total-interactions">0</span>
+                  <small>Posts</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="faces-container">
+              <div class="face-item" title="Positivo">
+                <div class="face-circle positive">😄</div>
+                <div class="face-info">
+                  <span id="pct-pos">0%</span>
+                  <small>Positivo</small>
+                </div>
+              </div>
+
+              <div class="face-item" title="Neutro">
+                <div class="face-circle neutral">😐</div>
+                <div class="face-info">
+                  <span id="pct-neu">0%</span>
+                  <small>Neutro</small>
+                </div>
+              </div>
+
+              <div class="face-item" title="Negativo">
+                <div class="face-circle negative">☹️</div>
+                <div class="face-info">
+                  <span id="pct-neg">0%</span>
+                  <small>Negativo</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="bottom-stats">
+          <h3>Exposição a Conteúdo Negativo</h3>
+          
+          <div class="comparison-chart">
+            
+            <div class="bar-group">
+              <div class="bar-label">
+                <span>Você</span>
+                <span id="user-comp-val">0%</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill user-bar" id="user-comp-bar" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div class="bar-group">
+              <div class="bar-label">
+                <span>Média Geral</span>
+                <span>55%</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill avg-bar" style="width: 55%"></div>
+              </div>
+            </div>
+          </div>
+          <p class="stat-desc" id="comp-message">Análise de consumo comparado ao benchmark médio.</p>
+        </section>
+
+
+        <nav class="action-area">
+          <a href="../home/index.html" class="btn-outline">Página Inicial</a>
+          <a href="../information/index.html" class="btn-outline">Informação Adicional</a>
+        </nav>
+      </div>
     </main>
 
     <footer>
-      <p>&copy; <span id="current-year"></span> Mente Conectada.</p>
+    <p>&copy; 2025 Mente Conectada. Todos os direitos reservados.</p>
     </footer>
   </body>
 </html>

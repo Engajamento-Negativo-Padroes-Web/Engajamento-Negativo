@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   carregarResultados();
 });
@@ -15,85 +14,131 @@ function carregarResultados() {
 
   
   const timeElement = document.getElementById("time-wasted");
-  if (timeElement) {
-    animateValue(timeElement, 0, tempoTotal, 1500, " seg");
-  }
+  if (timeElement) animateValue(timeElement, 0, tempoTotal, 1500, " seg");
 
-  
   
   const calcPeso = (tipo, cat) => (stats[tipo] && stats[tipo][cat] ? stats[tipo][cat] : 0);
 
-  const pontosNegativos = calcPeso('visualizacao', 'negativo') + (calcPeso('interacao', 'negativo') * 2) + (calcPeso('reacao', 'negativo') * 2);
-  const pontosPositivos = calcPeso('visualizacao', 'positivo') + (calcPeso('interacao', 'positivo') * 2) + (calcPeso('reacao', 'positivo') * 2);
-  const pontosNeutros = calcPeso('visualizacao', 'neutro') + (calcPeso('interacao', 'neutro') * 2) + (calcPeso('reacao', 'neutro') * 2);
+  const ptsNegativos = calcPeso('visualizacao', 'negativo') + (calcPeso('interacao', 'negativo') * 2) + (calcPeso('reacao', 'negativo') * 2);
+  const ptsPositivos = calcPeso('visualizacao', 'positivo') + (calcPeso('interacao', 'positivo') * 2) + (calcPeso('reacao', 'positivo') * 2);
+  const ptsNeutros = calcPeso('visualizacao', 'neutro') + (calcPeso('interacao', 'neutro') * 2) + (calcPeso('reacao', 'neutro') * 2);
 
-  const totalPontos = pontosNegativos + pontosPositivos + pontosNeutros;
-
-  
-  const pctNegativo = totalPontos > 0 ? Math.round((pontosNegativos / totalPontos) * 100) : 0;
-  const pctPositivo = totalPontos > 0 ? Math.round((pontosPositivos / totalPontos) * 100) : 0;
-  const pctNeutro = totalPontos > 0 ? Math.round((pontosNeutros / totalPontos) * 100) : 0;
-
-  atualizarListaConteudo(pctNegativo, pctPositivo, pctNeutro);
+  const totalGeral = ptsNegativos + ptsPositivos + ptsNeutros;
 
   
-  let nivelEstresse = pctNegativo;
-  const progressBar = document.querySelector(".progress-bar");
+  const pctNegativo = totalGeral > 0 ? Math.round((ptsNegativos / totalGeral) * 100) : 0;
+  const pctPositivo = totalGeral > 0 ? Math.round((ptsPositivos / totalGeral) * 100) : 0;
+  const pctNeutro = totalGeral > 0 ? Math.round((ptsNeutros / totalGeral) * 100) : 0;
+
   
-  if (progressBar) {
-    setTimeout(() => {
-      progressBar.style.width = `${nivelEstresse}%`;
-      progressBar.parentElement.setAttribute("aria-valuenow", nivelEstresse);
+  atualizarCarinhas(pctPositivo, pctNeutro, pctNegativo);
+  atualizarGrafico(pctPositivo, pctNeutro, pctNegativo, totalGeral);
+  
+  
+  atualizarComparativo(pctNegativo);
+
+  
+  let emocionalScore = 0;
+  if (totalGeral > 0) {
       
-      if (nivelEstresse < 30) progressBar.style.backgroundColor = "#00ff7f"; 
-      else if (nivelEstresse < 60) progressBar.style.backgroundColor = "#ffd700"; 
-      else progressBar.style.backgroundColor = "#ff4d4d"; 
-    }, 300);
+      const saldoLiquido = ptsPositivos - ptsNegativos;
+      
+      emocionalScore = (saldoLiquido / totalGeral) * 10;
   }
-
   
-  let score = 0;
-
-  if (totalPontos > 0) {
-      const tetoTempo = 60; 
-      let fatorProgressao = Math.min(tempoTotal, tetoTempo) / tetoTempo;
-      
-      
-      score = pctNegativo * fatorProgressao;
-      
-      
-      if (tempoTotal < 10) score = score * 0.5;
-
-  } else if (tempoTotal > 15) {
-      
-      score = Math.min((tempoTotal / 60) * 100, 100);
-  }
-
-  score = Math.round(score);
+  const scoreFormatado = emocionalScore.toFixed(1);
+  const scoreFinal = (emocionalScore > 0 ? "+" : "") + scoreFormatado;
 
   const scoreElement = document.getElementById("score-value");
   
-  if (scoreElement) animateValue(scoreElement, 0, score, 2000, "%");
+  if (scoreElement) animateValue(scoreElement, 0, emocionalScore, 2000, "", scoreFinal);
 }
 
-function atualizarListaConteudo(neg, pos, neu) {
-  const lista = document.querySelector(".stat-list");
-  if (lista) {
-    lista.innerHTML = `
-      <li><span aria-hidden="true">🔴</span> ${neg}% Conteúdo Negativo</li>
-      <li><span aria-hidden="true">🟡</span> ${pos}% Conteúdo Positivo</li>
-      <li><span aria-hidden="true">🟢</span> ${neu}% Conteúdo Neutro</li>
-    `;
-  }
+function atualizarCarinhas(pos, neu, neg) {
+    const elPos = document.getElementById('pct-pos');
+    const elNeu = document.getElementById('pct-neu');
+    const elNeg = document.getElementById('pct-neg');
+
+    if (elPos) elPos.innerText = `${pos}%`;
+    if (elNeu) elNeu.innerText = `${neu}%`;
+    if (elNeg) elNeg.innerText = `${neg}%`;
 }
 
-function animateValue(obj, start, end, duration, suffix = "") {
-  let startTimestamp = null;
-  const step = (timestamp) => {
-    if (!startTimestamp) startTimestamp = timestamp;
-    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-    obj.innerHTML = Math.floor(progress * (end - start) + start) + suffix;
-    if (progress < 1) window.requestAnimationFrame(step);
-  };
-  window.requestAnimationFrame(step);
+
+function atualizarGrafico(pos, neu, neg, total) {
+    const chart = document.getElementById('consumption-chart');
+    const totalEl = document.getElementById('total-interactions');
+    
+    if (chart && totalEl) {
+        totalEl.innerText = total;
+
+        const degPos = (pos / 100) * 360;
+        const degNeu = (neu / 100) * 360;
+        
+
+        const gradient = `conic-gradient(
+            #00ff7f 0deg ${degPos}deg,
+            #aaaaaa ${degPos}deg ${degPos + degNeu}deg,
+            #ff4d4d ${degPos + degNeu}deg 360deg
+        )`;
+
+        setTimeout(() => {
+            chart.style.background = gradient;
+        }, 100);
+    }
+}
+
+
+function atualizarComparativo(pctNegativoUsuario) {
+    const userBar = document.getElementById('user-comp-bar');
+    const userVal = document.getElementById('user-comp-val');
+    const message = document.getElementById('comp-message');
+    
+    const MEDIA_GERAL = 55; 
+
+    if (userBar && userVal) {
+        setTimeout(() => {
+            userBar.style.width = `${pctNegativoUsuario}%`;
+        }, 300);
+        userVal.innerText = `${pctNegativoUsuario}%`;
+
+        if (pctNegativoUsuario > MEDIA_GERAL) {
+            userBar.style.background = "linear-gradient(90deg, #ff4d4d, #ff1a1a)";
+            message.innerText = ` Você consumiu mais conteúdo negativo (${pctNegativoUsuario}%) do que a média (${MEDIA_GERAL}%).`;
+            message.style.color = "#ff8080";
+        } else if (pctNegativoUsuario < (MEDIA_GERAL - 10)) {
+            userBar.style.background = "linear-gradient(90deg, #00b359, #00ff7f)";
+            message.innerText = ` Ótimo! Seu consumo negativo (${pctNegativoUsuario}%) é bem menor que a média.`;
+            message.style.color = "#80ffbf";
+        } else {
+            userBar.style.background = "linear-gradient(90deg, #5A2E8C, #8A4FD1)";
+            message.innerText = `Você está na média (${MEDIA_GERAL}%) de consumo das redes sociais.`;
+            message.style.color = "#aaa";
+        }
+    }
+}
+
+function animateValue(obj, start, end, duration, suffix = "", finalString = null) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        
+        if (progress < 1) {
+            let currentValue = (progress * (end - start) + start);
+            let displayValue = currentValue.toFixed(0); 
+            
+            if (finalString) displayValue = currentValue.toFixed(1);
+            
+            
+            let sign = (finalString && currentValue > 0) ? "+" : "";
+            
+            obj.innerHTML = sign + displayValue + suffix;
+            window.requestAnimationFrame(step);
+        } else {
+            
+            obj.innerHTML = finalString || Math.round(end) + suffix;
+        }
+    };
+    window.requestAnimationFrame(step);
 }
