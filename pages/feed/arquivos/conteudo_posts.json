@@ -1,0 +1,177 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "tipo": "texto_curto",
+      "autor": "João Silva",
+      "conteudo": "Bom dia, rede! ☀️ Não poderia deixar de compartilhar a gratidão que estou sentindo hoje. Acordei com esse sol maravilhoso entrando pela janela e percebi como as pequenas coisas importam. Aproveitem cada segundo!",
+      "likes": 42,
+      "dislikes": 2,
+      "comentarios": 5,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 2,
+      "tipo": "imagem",
+      "autor": "Alerta Cidade 🚨",
+      "conteudo": "URGENTE: Cenas de caos na Avenida Central. Acidente gravíssimo envolve múltiplos veículos e bloqueia totalmente o trânsito. Testemunhas relatam estrondo ensurdecedor. Imagens exclusivas e fortes no local! 🚑😭",
+      "imagem": {
+        "src": "acidente_lego.jpg",
+        "alt": "Acidente trágico de lego",
+        "blur": true
+      },
+      "likes": 1205,
+      "dislikes": 45,
+      "comentarios": 312,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 3,
+      "tipo": "imagem",
+      "autor": "Pedro Costa",
+      "conteudo": "Sinceramente? Não dá mais. Entreguei o projeto 3 dias antes do prazo, bati todas as metas do trimestre, fiz hora extra não remunerada e qual foi o agradecimento? 'Pedro, precisamos conversar sobre seu horário de almoço'. A cultura corporativa é uma piada. 😡📉",
+      "imagem": {
+        "src": "empresa.png",
+        "alt": "Escritório corporativo depressivo",
+        "blur": false
+      },
+      "likes": 95,
+      "dislikes": 45,
+      "comentarios": 12,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 4,
+      "tipo": "texto_curto",
+      "autor": "RH Humanizado",
+      "conteudo": "O segredo não é a velocidade, é a constância! 🎉 Tenho o orgulho de anunciar que fui PROMOVIDA a Gerente Sênior! Foram 5 anos de muito café, noites em claro e resiliência. Nunca deixem ninguém dizer que vocês não conseguem!",
+      "likes": 342,
+      "dislikes": 0,
+      "comentarios": 56,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 5,
+      "tipo": "texto_curto",
+      "autor": "Coach de Produtividade",
+      "conteudo": "Você está cansado? O leão também cansa, mas ele não para de caçar. Se você tem 25 anos e ainda dorme 8 horas por dia, você já fracassou. Enquanto você dorme, a concorrência está estudando, tomando banho gelado, escalando a montanha e comendo virado pra parede, pega esse código! Acorde às 3h da manhã ou aceite a mediocridade! 🔥🚀",
+      "likes": 10,
+      "dislikes": 890,
+      "comentarios": 450,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 6,
+      "tipo": "texto_curto",
+      "autor": "Ana Oliveira",
+      "conteudo": "Dica rápida de culinária para quem mora sozinho: Como fazer aquele ovo frito perfeito com gema mole e borda crocante em menos de 3 minutos. Receita completa no primeiro comentário! 🍳",
+      "likes": 10,
+      "dislikes": 3,
+      "comentarios": 45,
+      "classificacao": "neutro"
+    },
+    {
+      "id": 7,
+      "tipo": "imagem",
+      "autor": "Natureza Selvagem",
+      "conteudo": "ALERTA DE PERIGO IMINENTE: Câmeras de segurança flagraram o momento exato em que um predador feroz ataca um humano indefeso! As imagens são chocantes e mostram a brutalidade da natureza. Veja com discrição! 😱🩸",
+      "imagem": {
+        "src": "gatinho_mordendo.png",
+        "alt": "Gatinho mordendo dedo",
+        "blur": true
+      },
+      "likes": 5600,
+      "dislikes": 20,
+      "comentarios": 800,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 8,
+      "tipo": "imagem",
+      "autor": "Dona Neide",
+      "conteudo": "Olhem só que benção, meus queridos! Essa florzinha decidiu abrir justo hoje no meu quintal. A natureza é perfeita mesmo, né? Desejo que o dia de vocês seja tão iluminado quanto essa pétala. 🌺✨",
+      "imagem": {
+        "src": "flor.jpg",
+        "alt": "Flor bonita no jardim",
+        "blur": false
+      },
+      "likes": 58,
+      "dislikes": 0,
+      "comentarios": 12,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 9,
+      "tipo": "link",
+      "autor": "Carlos Mendes",
+      "conteudo": "Não tem jeito, o ser humano é o vírus. Acabei de ler esse artigo e perdi a pouca fé que me restava na humanidade. O colapso da sociedade moderna é inevitável e vai acontecer antes do que imaginamos.",
+      "link": {
+        "url": "https://theonion.com",
+        "titulo": "Estudo confirma: O fim dos tempos está programado para terça-feira"
+      },
+      "likes": 1562,
+      "dislikes": 1268,
+      "comentarios": 34,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 10,
+      "tipo": "texto_longo",
+      "autor": "Maria Santos",
+      "conteudo": "Textão de agradecimento sim! ❤️ Após meses de dedicação, choro e vontade de desistir, finalmente entreguei meu TCC aprovado com nota máxima! Foi uma jornada solitária muitas vezes, mas valeu cada segundo. Obrigada a todos que torceram!",
+      "likes": 128,
+      "dislikes": 10,
+      "comentarios": 23,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 11,
+      "tipo": "texto_longo",
+      "autor": "Joana Dark",
+      "conteudo": "Desabafo necessário: Estou exausta dessa positividade tóxica do LinkedIn. Ninguém posta a foto do boleto vencido, da crise de ansiedade no domingo à noite ou do chefe abusivo. A vida real não é esse filtro bonito. Vamos normalizar não estar bem o tempo todo?",
+      "likes": 1240,
+      "dislikes": 30,
+      "comentarios": 150,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 12,
+      "tipo": "imagem",
+      "autor": "Jose Correia",
+      "conteudo": "Inacreditável que em pleno século 21 ainda tenhamos que ver cenas como essa. O descaso das autoridades é total! Onde vamos parar com tanta destruição? Compartilhem para denunciar esse absurdo! 😡",
+      "imagem": {
+        "src": "desastre.png",
+        "alt": "Cena de desastre genérico",
+        "blur": true
+      },
+      "likes": 95,
+      "dislikes": 45,
+      "comentarios": 12,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 13,
+      "tipo": "link",
+      "autor": "Tech News",
+      "conteudo": "Sua privacidade acabou. Nova Inteligência Artificial é capaz de ler pensamentos através das ondas de Wi-Fi e vender seus sonhos para anunciantes. Parece Black Mirror, mas é real.",
+      "link": {
+        "url": "https://olhardigital.com.br/2025/02/07/pro/meta-apresenta-ia-que-le-mentes-com-precisao-de-80/",
+        "titulo": "Seus pensamentos não são mais privados: Entenda a tecnologia"
+      },
+      "likes": 890,
+      "dislikes": 120,
+      "comentarios": 340,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 14,
+      "tipo": "texto_curto",
+      "autor": "Good Vibes Only",
+      "conteudo": "Lembrete gentil para você que está lendo isso agora: Relaxe os ombros, destrave o maxilar e beba um copo d'água. Você está fazendo o melhor que pode e isso já é suficiente. Respire fundo! 💙💧",
+      "likes": 220,
+      "dislikes": 1,
+      "comentarios": 15,
+      "classificacao": "positivo"
+    }
+  ]
+}
