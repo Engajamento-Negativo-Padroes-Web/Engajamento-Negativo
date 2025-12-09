@@ -26,6 +26,7 @@ label {
 }
 
 
+#feedback-type,
 #feedback-subject,
 #feedback-body {
   display: block;
@@ -42,16 +43,20 @@ label {
 }
 
 
+#feedback-type option {
+    background-color: var(--color-background-secondary, #1a1a1a);
+    color: var(--color-text-primary);
+}
+
 #feedback-body {
     min-height: 150px; 
     resize: vertical; 
 }
 
 
+#feedback-type:focus,
 #feedback-subject:focus,
 #feedback-body:focus {
     border-color: var(--color-accent, blue);
     outline: none; 
-   
-    
 }
