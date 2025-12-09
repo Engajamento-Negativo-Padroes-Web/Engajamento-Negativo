@@ -1,14 +1,21 @@
 // ====== Seus dados (com ordenação por início, depois fim, depois nome) ======
 const sampleTasks = [
- // { nome: 'Especificação do projeto', inicio: '2025-09-01', fim: '2025-09-20', responsavel: 'Todos' },
-  { nome: 'Configuração do ambiente', inicio: '2025-10-15', fim: '2025-10-18', responsavel: 'Artur Yamada e Thiago Marcelino' },
-  //{ nome: 'Design dos layouts inicial', inicio: '2025-09-01', fim: '2025-09-10', responsavel: 'Artur Yamada' },
-  { nome: 'Design do Header/Footer', inicio: '2025-10-10', fim: '2025-10-13', responsavel: 'Thiago Marcelino' },
-  { nome: 'Página inicial', inicio: '2025-10-10', fim: '2025-10-29', responsavel: 'Thiago Marcelino' },
-  { nome: 'Página informação adicional', inicio: '2025-10-15', fim: '2025-10-29', responsavel: 'Letícia Amaro e Vinicius Kureishi' },
-  { nome: 'Página de feedback', inicio: '2025-10-15', fim: '2025-10-22', responsavel: 'Artur Yamada' },
-  { nome: 'Página Nosso Trabalho', inicio: '2025-10-15', fim:'2025-11-01', responsavel: 'Roberto'},
-  { nome: 'Página Sobre Nós', inicio: '2025-10-15', fim: '2025-10-25', responsavel: 'Eduardo Kendy' },
+  { nome: 'Configuração do ambiente', inicio: '2025-10-01', fim: '2025-10-10', responsavel: 'Artur Yamada e Thiago Marcelino', tipo: 'Infraestrutura' },
+  { nome: 'Revisão por pares - Conteúdo', inicio: '2025-11-19', fim: '2025-11-23', responsavel: 'Letícia Amaro', tipo: 'Revisão' },
+  { nome: 'Revisão por pares - Código', inicio: '2025-11-19', fim: '2025-11-23', responsavel: 'Artur Yamada e Thiago Marcelino', tipo: 'Revisão' },
+  { nome: 'Revisão por pares - Estilo', inicio: '2025-11-19', fim: '2025-11-23', responsavel: 'Roberto Vieira', tipo: 'Revisão' },
+  { nome: 'Revisão por pares - Relatório', inicio: '2025-11-22', fim: '2025-11-26', responsavel: 'Eduardo Kendy e Vinicius Kureishi', tipo: 'Documentação' },
+  { nome: 'Desenvolvimento parcial - Relatório', inicio: '2025-11-07', fim: '2025-11-12', responsavel: 'Artur Yamada, Eduardo Kendy, Leticia Amaro, Roberto Vieira, Thiago Marcelino e Vinicius Kureishi', tipo: 'Documentação' },
+  { nome: 'Design do Header/Footer', inicio: '2025-10-10', fim: '2025-10-13', responsavel: 'Thiago Marcelino', tipo: 'Design' },
+  { nome: 'Página Home', inicio: '2025-10-10', fim: '2025-11-10', responsavel: 'Thiago Marcelino', tipo: 'Desenvolvimento' },
+  { nome: 'Página informação adicional', inicio: '2025-10-15', fim: '2025-11-05', responsavel: 'Letícia Amaro e Vinicius Kureishi', tipo: 'Desenvolvimento' },
+  { nome: 'Página de feedback', inicio: '2025-10-15', fim: '2025-11-15', responsavel: 'Artur Yamada', tipo: 'Desenvolvimento' },
+  { nome: 'Página Nosso Trabalho', inicio: '2025-10-15', fim:'2025-11-15', responsavel: 'Roberto Vieira', tipo: 'Desenvolvimento' },
+  { nome: 'Página Sobre Nós', inicio: '2025-10-15', fim: '2025-11-15', responsavel: 'Eduardo Kendy', tipo: 'Desenvolvimento' },
+  { nome: 'População do Feed', inicio:'2025-12-03', fim:'2025-12-10', responsavel: 'Artur Yamada e Roberto Vieira', tipo: 'Conteúdo' },
+  { nome: 'Página Feed', inicio: '2025-11-01', fim: '2025-12-07', responsavel: 'Artur Yamada, Eduardo Kendy e Thiago Marcelino', tipo: 'Desenvolvimento' },
+  { nome: 'Página de Resultados', inicio: '2025-11-15', fim: '2025-12-10', responsavel: 'Letícia Amaro e Vinicius Kureishi', tipo: 'Desenvolvimento' },
+  { nome: 'Relatório Final', inicio: '2025-12-03', fim: '2025-12-10', responsavel: 'Eduardo Kendy e Roberto Vieira', tipo: 'Documentação' },
 ];
 sampleTasks.sort((a, b) =>
   a.inicio.localeCompare(b.inicio) ||
@@ -16,80 +23,34 @@ sampleTasks.sort((a, b) =>
   a.nome.localeCompare(b.nome)
 );
 
-const VISIBLE_RANGE = window.__VISIBLE_RANGE__ || { start: '2025-10-01', end: '2025-11-30' };
+const VISIBLE_RANGE = window.__VISIBLE_RANGE__ || { start: '2025-10-01', end: '2025-12-13' };
 
 const PERSON_COLORS = {};
 const getCssVar = (name, fallback) =>
   (getComputedStyle(document.documentElement).getPropertyValue(name) || '').trim() || fallback;
 const ACCENT = getCssVar('--color-accent', '#0ea5e9');
 
-function parseColorToRgb(color){
-  if(!color) return {r:14,g:165,b:233};
-  const c = color.trim().toLowerCase();
-  if(c.startsWith('#')){
-    const hex = c.length===4 ? '#' + c[1]+c[1]+c[2]+c[2]+c[3]+c[3] : c;
-    const n = parseInt(hex.slice(1), 16);
-    return { r:(n>>16)&255, g:(n>>8)&255, b:n&255 };
-  }
-  if(c.startsWith('rgb')){
-    const s=c.indexOf('('), e=c.indexOf(')', s+1);
-    const [r,g,b] = c.slice(s+1,e).split(',').map(v=>parseInt(v.trim(),10));
-    return { r:r||0, g:g||0, b:b||0 };
-  }
-  return {r:14,g:165,b:233};
-}
-function rgbToHsl({r,g,b}){
-  r/=255; g/=255; b/=255;
-  const max=Math.max(r,g,b), min=Math.min(r,g,b);
-  let h=0, s=0; const l=(max+min)/2;
-  if(max!==min){
-    const d=max-min;
-    s = l>0.5 ? d/(2-max-min) : d/(max+min);
-    switch(max){
-      case r: h=(g-b)/d+(g<b?6:0); break;
-      case g: h=(b-r)/d+2; break;
-      default: h=(r-g)/d+4;
-    }
-    h/=6;
-  }
-  return {h:Math.round(h*360), s:Math.round(s*100), l:Math.round(l*100)};
-}
-function hslToHex(h,s,l){
-  s/=100; l/=100;
-  const c=(1-Math.abs(2*l-1))*s, x=c*(1-Math.abs((h/60)%2-1)), m=l-c/2;
-  let r=0,g=0,b=0;
-  if(h<60){r=c;g=x;b=0}
-  else if(h<120){r=x;g=c;b=0}
-  else if(h<180){r=0;g=c;b=x}
-  else if(h<240){r=0;g=x;b=c}
-  else if(h<300){r=x;g=0;b=c}
-  else {r=c;g=0;b=x}
-  r=Math.round((r+m)*255).toString(16).padStart(2,'0');
-  g=Math.round((g+m)*255).toString(16).padStart(2,'0');
-  b=Math.round((b+m)*255).toString(16).padStart(2,'0');
-  return `#${r}${g}${b}`;
-}
-function genPaletteFromAccent(n=12){
-  const {h,s,l}=rgbToHsl(parseColorToRgb(ACCENT));
-  const out=[]; const shifts=[-40,-20,0,20,40,70,140,200];
-  for(let i=0;i<n;i++){
-    const hh=(h+shifts[i%shifts.length]+360)%360;
-    const ll=Math.min(80, Math.max(35, l + (i%2? -10: +5)));
-    const ss=Math.min(90, Math.max(45, s + (i%3===0? 5: -5)));
-    out.push(hslToHex(hh, ss, ll));
-  }
-  return out;
-}
-const PALETTE = genPaletteFromAccent(12);
-function colorFor(person){
-  if (PERSON_COLORS[person]) return PERSON_COLORS[person];
-  let h=0; for(let i=0;i<person.length;i++) h=(h*31+person.charCodeAt(i))>>>0;
-  const c = PALETTE[h % PALETTE.length];
-  PERSON_COLORS[person] = c;
-  return c;
-}
-window.setPersonColor = (p, hex)=>{ PERSON_COLORS[p]=hex; };
+const TYPE_COLORS = {
+  'Desenvolvimento': '#3b82f6',
+  'Design':          '#a855f7',
+  'Infraestrutura':  '#475569',
+  'Revisão':         '#10b981',
+  'Conteúdo':        '#f43f5e',
+  'Documentação':    '#f59e0b',
+};
 
+// Cor de fallback (cinza claro) para tipos desconhecidos
+const DEFAULT_COLOR = '#94a3b8'; 
+
+function colorFor(type) {
+  const key = String(type || '').trim();
+  
+  // Retorna a cor mapeada OU a cor padrão se não encontrar
+  return TYPE_COLORS[key] || DEFAULT_COLOR;
+}
+
+// Helper atualizado para definir cor por TIPO manualmente se quiser
+window.setTypeColor = (type, hex)=>{ TYPE_COLORS[type]=hex; };
 // =========================
 // Datas / helpers
 // =========================
@@ -129,9 +90,6 @@ function monthsBetweenDays(firstDay, lastDay){
   return out;
 }
 
-// =========================
-// Render Gantt (grade DIÁRIA + cabeçalho por mês/semana)
-// =========================
 function renderGantt(tasks){
   const header = document.getElementById('header');
   const body   = document.getElementById('body');
@@ -144,60 +102,63 @@ function renderGantt(tasks){
     return;
   }
 
-  // Normaliza dados
-  const data = tasks.map(t => ({
-    nome: String(t.nome ?? t.name ?? '').trim(),
-    inicio: parseISO(t.inicio ?? t.start),
-    fim:    parseISO(t.fim    ?? t.end),
-    responsavel: String(t.responsavel ?? t.pessoa ?? t.owner ?? t.dono ?? 'Responsável').trim()
-  }));
+  const data = tasks.map(t => {
+    const tipoItem = String(t.tipo ?? 'Geral').trim();
+    return {
+      nome: String(t.nome ?? t.name ?? '').trim(),
+      inicio: parseISO(t.inicio ?? t.start),
+      fim:    parseISO(t.fim    ?? t.end),
+      responsavel: String(t.responsavel ?? t.pessoa ?? t.owner ?? 'Responsável').trim(),
+      tipo: tipoItem,
+      color: colorFor(tipoItem) 
+    };
+  });
 
-  // Janela visível (respeita exatamente as datas pedidas; grade DIÁRIA)
+  // Janela visível
   const rangeStart = startOfDay(parseISO(VISIBLE_RANGE.start));
   const rangeEnd   = startOfDay(parseISO(VISIBLE_RANGE.end));
   const firstDay   = rangeStart;
   const lastDay    = rangeEnd;
   const totalDays  = daysDiff(lastDay, firstDay) + 1;
 
-  // Constrói cabeçalho
-  const cols = `var(--col-task) repeat(${totalDays}, 1fr)`;
+  // Constrói Grid
+  const cols = `var(--col-task) repeat(${totalDays}, var(--day-width, 1fr))`;
   header.style.gridTemplateColumns = cols;
   header.style.gridTemplateRows    = '64px 40px';
   header.innerHTML = '';
 
-  // Coluna "Tarefas"
   const left = document.createElement('div');
   left.className = 'head-tasks sticky-left';
   left.textContent = 'Tarefas';
   header.appendChild(left);
 
-  // Meses (primeira linha do header)
   const monthBlocks = monthsBetweenDays(firstDay, lastDay);
-  const themesHues = (() => {
-    const base = rgbToHsl(parseColorToRgb(ACCENT)).h;
-    const hues = [base, (base+40)%360, (base+80)%360, (base+120)%360];
-    return hues.map(h=>({ bg:hslToHex(h,75,55), text:'#fff' }));
-  })();
+
+  const monthColors = ['#e0f2fe', '#f0f9ff', '#e0e7ff', '#ecfeff']; 
+  const monthText   = ['#0369a1', '#0c4a6e', '#3730a3', '#0e7490'];
+
   monthBlocks.forEach((m,i)=>{
     const startIdx = Math.max(0, daysDiff(m.start, firstDay));
     const endIdx   = Math.min(totalDays-1, daysDiff(m.end, firstDay));
+    
     const el = document.createElement('div');
     el.className = 'month-badge';
-    const th = themesHues[i % themesHues.length];
-    el.style.background = th.bg; el.style.color = th.text;
+    el.style.background = monthColors[i % monthColors.length];
+    el.style.color      = monthText[i % monthText.length];
+    
     el.style.gridRow = '1 / 2';
     el.style.gridColumn = `${2+startIdx} / ${2+endIdx+1}`;
     el.textContent = cap(monthLabel(m.month));
     header.appendChild(el);
   });
 
-  // Semanas (segunda linha do header): cada badge = 1 semana (7 dias)
+  // Semanas
   const weeks = weeksBetween(firstDay, lastDay);
   weeks.forEach((w, i) => {
-    // Clamp para o range exato (firstDay..lastDay)
     const sIdx = Math.max(0, Math.min(totalDays-1, daysDiff(w.start, firstDay)));
     const eIdx = Math.max(0, Math.min(totalDays-1, daysDiff(w.end,   firstDay)));
     if (eIdx < 0 || sIdx > totalDays-1 || eIdx < sIdx) return;
+    
     const wk = document.createElement('div');
     wk.className = 'tw-badge';
     wk.style.gridRow = '2 / 3';
@@ -206,14 +167,14 @@ function renderGantt(tasks){
     header.appendChild(wk);
   });
 
-  // Corpo (linhas = tarefas, colunas = DIAS)
+  // Corpo
   body.style.gridTemplateColumns = cols;
   body.innerHTML = '';
 
   data.forEach((t, idx) => {
     const rowStart = idx+1, rowEnd = idx+2;
 
-    // Chip com o nome da tarefa, col fixa
+    // Nome da Tarefa
     const chip = document.createElement('div');
     chip.className = 'task-chip';
     chip.style.gridColumn = '1 / 2';
@@ -222,7 +183,7 @@ function renderGantt(tasks){
     chip.title = t.nome;
     body.appendChild(chip);
 
-    // Clamp da tarefa à janela
+    // Lógica de posição
     const s = startOfDay(t.inicio);
     const e = startOfDay(t.fim);
     if (e < firstDay || s > lastDay) return;
@@ -235,30 +196,30 @@ function renderGantt(tasks){
     if (endIdx < startIdx) return;
 
     const gcStart = 2 + startIdx;
-    const gcEnd   = 2 + endIdx + 1; // exclusivo
-    const color   = colorFor(t.responsavel);
+    const gcEnd   = 2 + endIdx + 1;
+    
+    // --- CORREÇÃO 2: Usar a cor do TIPO (que já calculamos) ---
+    const color = t.color; 
 
     const durationDays = endIdx - startIdx + 1;
+    
+    // Renderiza Ponto ou Barra
+    const el = document.createElement('div');
+    el.style.background = color;
+    el.style.gridRow    = `${rowStart} / ${rowEnd}`;
+    el.title = `[${t.tipo}] ${t.nome} (${t.responsavel})`; // Tooltip útil
+
     if (durationDays === 1){
-      const dot = document.createElement('div');
-      dot.className = 'dot';
-      dot.style.background  = color;
-      dot.style.gridColumn  = `${gcStart} / ${gcStart+1}`;
-      dot.style.gridRow     = `${rowStart} / ${rowEnd}`;
-      dot.title = `${t.responsavel} • ${t.nome}`;
-      body.appendChild(dot);
+      el.className = 'dot';
+      el.style.gridColumn = `${gcStart} / ${gcStart+1}`;
     } else {
-      const bar = document.createElement('div');
-      bar.className = 'bar';
-      bar.style.background = color;
-      bar.style.gridColumn = `${gcStart} / ${gcEnd}`;
-      bar.style.gridRow    = `${rowStart} / ${rowEnd}`;
-      bar.title = `${t.responsavel} • ${t.nome}`;
-      body.appendChild(bar);
+      el.className = 'bar';
+      el.style.gridColumn = `${gcStart} / ${gcEnd}`;
     }
+    body.appendChild(el);
   });
 
-  // Colunas de fundo por semana (faixas alternadas)
+  // Colunas de fundo (semanas)
   weeks.forEach((w,i)=>{
     const sIdx = Math.max(0, Math.min(totalDays-1, daysDiff(w.start, firstDay)));
     const eIdx = Math.max(0, Math.min(totalDays-1, daysDiff(w.end,   firstDay)));
@@ -270,27 +231,32 @@ function renderGantt(tasks){
     body.appendChild(col);
   });
 
-  // Legenda (responsáveis)
+  // --- CORREÇÃO 3: Legenda baseada em TIPOS, não pessoas ---
   if (legend){
-    const pessoas = Array.from(new Set(data.map(t=>t.responsavel)));
+    // Pega lista única de tipos
+    const tipos = Array.from(new Set(data.map(t=>t.tipo))).sort();
+    
     legend.innerHTML = '';
-    pessoas.forEach(p=>{
+    tipos.forEach(tipo => {
       const item = document.createElement('div');
       item.className = 'legend-item';
+      
       const sw = document.createElement('div');
       sw.className = 'legend-swatch';
-      sw.style.background = colorFor(p);
+      sw.style.background = colorFor(tipo); // Cor do tipo
+      
       const tx = document.createElement('div');
-      tx.textContent = p;
+      tx.textContent = tipo;
+      
       item.appendChild(sw); item.appendChild(tx);
       legend.appendChild(item);
     });
   }
 }
 
-// API simples
+// API
 window.renderGantt = renderGantt;
-window.setTasks   = (tasks)=> renderGantt(tasks);
+window.setTasks    = (tasks)=> renderGantt(tasks);
 
-// Render inicial com seus dados
+// Render inicial
 renderGantt(window.__TASKS__ || sampleTasks);

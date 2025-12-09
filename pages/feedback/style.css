@@ -1,7 +1,7 @@
 main {
-  padding: 20px 100px;
+  margin: 0 auto; 
   max-width: 1500px;
-  align-self: center;
+  padding: 20px min(5%, 100px); 
 }
 
 main h1 {
@@ -21,13 +21,16 @@ label {
   font-weight: bold;
   font-size: 1.8rem;
   color: var(--color-text-primary);
-  margin-top: 150px;
+  margin-top: 2rem;
+  display: block;
 }
 
-#feedback-subject {
+
+#feedback-subject,
+#feedback-body {
+  display: block;
   margin-bottom: 20px;
   width: 100%;
-  display: inline-block;
   padding: 20px 20px;
   border: 1px solid var(--color-text-subtle);
   border-radius: 5px;
@@ -35,17 +38,20 @@ label {
   color: var(--color-text-subtle);
   font-size: 1rem;
   font-family: var(--font-family-sans);
+  box-sizing: border-box;
 }
+
 
 #feedback-body {
-  margin-bottom: 20px;
-  width: 100%;
-  display: inline-block;
-  padding: 20px 20px;
-  border: 1px solid var(--color-text-subtle);
-  border-radius: 5px;
-  background-color: transparent;
-  color: var(--color-text-subtle);
-  font-size: 1rem;
-  font-family: var(--font-family-sans);
+    min-height: 150px; 
+    resize: vertical; 
+}
+
+
+#feedback-subject:focus,
+#feedback-body:focus {
+    border-color: var(--color-accent, blue);
+    outline: none; 
+   
+    
 }
