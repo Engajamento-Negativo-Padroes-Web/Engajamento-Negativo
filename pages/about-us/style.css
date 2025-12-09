@@ -28,6 +28,10 @@ main a {
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
   width: 250px;
   box-sizing: border-box;
 
@@ -82,6 +86,10 @@ main a {
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
   width: 250px;
   box-sizing: border-box;
 
@@ -101,7 +109,7 @@ main a {
   align-items: flex-start;
 }
 
-#prof-profile-card:hover > div {
+#prof-profile-card:hover>div {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -138,6 +146,28 @@ main a {
   border: 4px solid #fff;
 }
 
+@media (max-width: 600px) {
+  #prof-profile-card:hover {
+    width: 100%;
+    align-items: center;
+  }
+
+  #prof-profile-card:hover>div {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #prof-profile-card:hover #prof-description {
+    text-align: center;
+    width: 100%;
+  }
+
+  #prof-profile-card:hover h3 {
+    text-align: center;
+  }
+}
+
 #prof-description {
   display: none;
 }
@@ -160,55 +190,126 @@ main a {
 }
 
 @keyframes artur-animation {
-  0%   {transform: scale(1.3, 0.7);}
-  25%  {transform: scale(0.8, 1.2);}
-  50%  {transform: scale(1.1, 0.9);}
-  75%  {transform: scale(0.9, 1.1);}
-  100% {transform: scale(1, 1);}
+  0% {
+    transform: scale(1.3, 0.7);
+  }
+
+  25% {
+    transform: scale(0.8, 1.2);
+  }
+
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+
+  75% {
+    transform: scale(0.9, 1.1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
 }
 
 #eduardo-card {
+  position: relative;
   transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+  background: var(--color-background);
+  border: none;
+}
+
+#eduardo-card::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: -2;
+
+  background: conic-gradient(transparent 0deg 120deg,
+      #0000ff 120deg 180deg,
+      transparent 180deg 300deg,
+      #ff0000 300deg 360deg);
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#eduardo-card::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: var(--color-background);
+  border-radius: 10px;
+  z-index: -1;
+  background-color: #1a1a1a;
 }
 
 #eduardo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
 
+#eduardo-card:hover::before {
+  opacity: 1;
+  animation: snake-rotate 2s linear infinite;
+}
+
+@keyframes snake-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(45deg);
+  }
+
+  30% {
+    transform: rotate(135deg);
+  }
+
+  70% {
+    transform: rotate(225deg);
+  }
+
+  80% {
+    transform: rotate(315deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 #leticia-card {
   transition: all 0.3s ease;
 }
 
-#leticia-card:hover {
-
-}
+#leticia-card:hover {}
 
 #roberto-card {
   transition: all 0.3s ease;
 }
 
-#roberto-card:hover {
-
-}
+#roberto-card:hover {}
 
 #thiago-card {
   transition: all 0.3s ease;
 }
 
-#thiago-card:hover {
-
-}
-
-
-
+#thiago-card:hover {}
 
 #vinicius-card {
   position: relative;
   z-index: 1;
-  background: var(--color-background); 
+  background: var(--color-background);
   background-repeat: no-repeat;
   transition: transform 0.3s ease;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: #1a1a1a;
 }
 
 #vinicius-card:hover {
