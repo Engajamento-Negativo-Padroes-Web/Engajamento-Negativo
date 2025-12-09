@@ -124,9 +124,8 @@ function setupNavigationListeners() {
 }
 
 function toggleContent(content, button, classification) {
-  statistics.interaction[classification] += 1;
-
   if (button.textContent === "Ver mais") {
+    statistics.interaction[classification] += 1;
     content.classList.remove("hideContent");
     content.classList.add("showContent");
     button.textContent = "Ver menos";
@@ -143,17 +142,21 @@ function toggleImage(image, container, classification, blur) {
     if (blur) {
       image.classList.add("heavyBlur");
     }
+
     image.classList.remove("expandedImage");
     container.classList.remove("expandedImage");
-  } else {
-    statistics.interaction[classification] += 1;
-    console.log(statistics.interaction);
-    if (image.classList.contains("heavyBlur")) {
-      image.classList.remove("heavyBlur");
-    }
-    image.classList.add("expandedImage");
-    container.classList.add("expandedImage");
+
+    return;
   }
+
+  statistics.interaction[classification] += 1;
+
+  if (image.classList.contains("heavyBlur")) {
+    image.classList.remove("heavyBlur");
+  }
+
+  image.classList.add("expandedImage");
+  container.classList.add("expandedImage");
 }
 
 function toggleLikePost(likeElement, dislikeElement, post) {
