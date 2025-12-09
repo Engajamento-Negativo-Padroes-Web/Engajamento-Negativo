@@ -19,7 +19,7 @@ img {
   cursor: pointer;
 }
 
-.imageContainer{
+.imageContainer {
   width: 480px;
   max-height: 480px;
   margin: -5px;
@@ -87,6 +87,12 @@ img {
 }
 
 #botao_resultado {
-    margin: 15px auto 130px auto;
-    display: block;
+  margin: 15px auto 130px auto;
+  display: block;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }

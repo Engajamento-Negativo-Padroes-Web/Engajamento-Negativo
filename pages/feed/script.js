@@ -1,167 +1,213 @@
-estatisticas = {
-    // reacao se refere a like/dislike
-    reacao: {
-        positivo: 0,
-        negativo: 0,
-        neutro: 0,
-    },
-    // tempo se refere ao tempo em cada post
-    tempo: {
-        positivo: 0,
-        negativo: 0,
-        neutro: 0,
-    },
-    // interacao se refere a acao esperada para cada tipo de post (ver mais, clicar no link, abrir imagem, etc)
-    interacao: {
-        positivo: 0,
-        negativo: 0,
-        neutro: 0,
+const statistics = {
+  reaction: {
+    positive: 0,
+    negative: 0,
+    neutral: 0,
+  },
+  time: {
+    positive: 0,
+    negative: 0,
+    neutral: 0,
+  },
+  interaction: {
+    positive: 0,
+    negative: 0,
+    neutral: 0,
+  },
+};
+
+function toggleContent(content, button, classification) {
+  if (button.textContent === "Ver mais") {
+    statistics.interaction[classification] += 1;
+    content.classList.remove("hideContent");
+    content.classList.add("showContent");
+    button.textContent = "Ver menos";
+  } else {
+    content.classList.remove("showContent");
+    content.classList.add("hideContent");
+    button.textContent = "Ver mais";
+  }
+}
+
+function toggleImage(image, container, classification, blur) {
+  if (image.classList.contains("expandedImage")) {
+    if (blur) {
+      image.classList.add("heavyBlur");
     }
-}
-// TODO finalizar contabilizacao das estatisticas
-
-function toggleContent(content, button, classificacao) {
-    if (button.textContent === "Ver mais") {
-        // exemplo de contabilizacao de interacao
-        estatisticas.interacao[classificacao] += 1;
-        console.log(estatisticas.interacao);
-        content.classList.remove('hideContent');
-        content.classList.add('showContent');
-        button.textContent = "Ver menos";
-    } else {
-        content.classList.remove('showContent');
-        content.classList.add('hideContent');
-        button.textContent = "Ver mais";
+    image.classList.remove("expandedImage");
+    container.classList.remove("expandedImage");
+  } else {
+    statistics.interaction[classification] += 1;
+    console.log(statistics.interaction);
+    if (image.classList.contains("heavyBlur")) {
+      image.classList.remove("heavyBlur");
     }
+    image.classList.add("expandedImage");
+    container.classList.add("expandedImage");
+  }
 }
 
-function toggleImagem(imagem, container, classificacao, blur) {
-    if (imagem.classList.contains('expandedImage')) {
-        if (blur) {
-            imagem.classList.add('heavyBlur');
-        }
-        imagem.classList.remove('expandedImage');
-        container.classList.remove('expandedImage');
-    } else {
-        estatisticas.interacao[classificacao] += 1;
-        console.log(estatisticas.interacao);
-        if (imagem.classList.contains('heavyBlur')) {
-            imagem.classList.remove('heavyBlur');
-        }
-        imagem.classList.add('expandedImage');
-        container.classList.add('expandedImage');
-    }
+function createInteractions(post) {
+  const container = document.createElement("div");
+  container.className = "post_interactions";
+
+  const likes = document.createElement("span");
+  likes.className = "interaction likes";
+  likes.textContent = `👍 ${post.likes}`;
+
+  const dislikes = document.createElement("span");
+  dislikes.className = "interaction dislikes";
+  dislikes.textContent = `👎 ${post.dislikes}`;
+
+  const comments = document.createElement("span");
+  comments.className = "interaction comments";
+  comments.textContent = `💬 ${post.comments}`;
+
+  container.appendChild(likes);
+  container.appendChild(dislikes);
+  container.appendChild(comments);
+  return container;
 }
 
-function criarInteracoes(post) {
-    const container = document.createElement('div');
-    container.className = 'post_interacoes';
+function shortTextPost(postElement, post) {
+  const author = document.createElement("h2");
+  author.textContent = post.author;
+  postElement.appendChild(author);
 
-    const likes = document.createElement('span');
-    likes.className = 'interacao likes';
-    likes.textContent = `👍 ${post.likes}`;
+  const content = document.createElement("p");
+  content.textContent = post.content;
+  postElement.appendChild(content);
 
-    const dislikes = document.createElement('span');
-    dislikes.className = 'interacao dislikes';
-    dislikes.textContent = `👎 ${post.dislikes}`;
-
-    const comentarios = document.createElement('span');
-    comentarios.className = 'interacao comentarios';
-    comentarios.textContent = `💬 ${post.comentarios}`;
-
-    container.appendChild(likes);
-    container.appendChild(dislikes);
-    container.appendChild(comentarios);
-    return container;
+  postElement.appendChild(createInteractions(post));
 }
 
-function postTextoCurto(postElement, post) {
-    const autor = document.createElement('h2');
-    autor.textContent = post.autor;
-    postElement.appendChild(autor);
+function longTextPost(postElement, post) {
+  const author = document.createElement("h2");
+  author.textContent = post.author;
+  postElement.appendChild(author);
 
-    const conteudo = document.createElement('p');
-    conteudo.textContent = post.conteudo;
-    postElement.appendChild(conteudo);
+  const content = document.createElement("div");
+  content.classList.add("hideContent");
+  content.textContent = post.content;
+  postElement.appendChild(content);
 
-    postElement.appendChild(criarInteracoes(post));
+  const expandButton = document.createElement("button");
+  expandButton.textContent = "See more";
+  expandButton.onclick = () =>
+    toggleContent(content, expandButton, post.classification);
+  postElement.appendChild(expandButton);
+
+  postElement.appendChild(createInteractions(post));
 }
 
-function postTextoLongo(postElement, post) {
-    const autor = document.createElement('h2');
-    autor.textContent = post.autor;
-    postElement.appendChild(autor);
+function imagePost(postElement, post) {
+  const author = document.createElement("h2");
+  author.textContent = post.author;
+  postElement.appendChild(author);
 
-    const conteudo = document.createElement('div');
-    conteudo.classList.add('hideContent');
-    conteudo.textContent = post.conteudo;
-    postElement.appendChild(conteudo);
+  const content = document.createElement("p");
+  content.textContent = post.content;
+  postElement.appendChild(content);
 
-    const expandir = document.createElement('button');
-    expandir.textContent = "Ver mais";
-    expandir.onclick = () => toggleContent(conteudo, expandir, post.classificacao);
-    postElement.appendChild(expandir);
+  const imageContainer = document.createElement("div");
+  imageContainer.classList.add("imageContainer");
+  const image = document.createElement("img");
+  image.setAttribute("src", "files/" + post.image.src);
+  image.setAttribute("alt", post.image.alt);
+  image.onclick = () =>
+    toggleImage(image, imageContainer, post.classification, post.image.blur);
+  if (post.image.blur) {
+    image.classList.add("heavyBlur");
+  }
+  imageContainer.appendChild(image);
+  postElement.appendChild(imageContainer);
 
-    postElement.appendChild(criarInteracoes(post));
+  postElement.appendChild(createInteractions(post));
 }
 
-function postImagem(postElement, post) {
-    const autor = document.createElement('h2');
-    autor.textContent = post.autor;
-    postElement.appendChild(autor);
+function linkPost(postElement, post) {
+  const author = document.createElement("h2");
+  author.textContent = post.author;
+  postElement.appendChild(author);
 
-    const conteudo = document.createElement('p');
-    conteudo.textContent = post.conteudo;
-    postElement.appendChild(conteudo);
+  const content = document.createElement("p");
+  content.textContent = post.content;
+  postElement.appendChild(content);
 
-    const imageContainer = document.createElement('div');
-    imageContainer.classList.add("imageContainer")
-    const imagem = document.createElement('img');
-    imagem.setAttribute("src", "arquivos/"+post.imagem.src);
-    imagem.setAttribute("alt", post.imagem.alt);
-    imagem.onclick = () => toggleImagem(imagem, imageContainer, post.classificacao, post.imagem.blur);
-    if (post.imagem.blur) {
-        imagem.classList.add("heavyBlur");
-    }
-    imageContainer.appendChild(imagem);
-    postElement.appendChild(imageContainer);
-
-    postElement.appendChild(criarInteracoes(post));
+  const link = document.createElement("a");
+  link.setAttribute("href", post.link.href);
+  link.setAttribute("target", "_blank");
+  link.textContent = post.link.text;
+  postElement.appendChild(link);
 }
 
-function construirPost(postElement, post) {
-    postElement.setAttribute("id", "post_" + post.id);
-    if (post.tipo === 'texto_curto') {
-        return postTextoCurto(postElement, post)
-    }
-    else if (post.tipo === 'texto_longo') {
-        return postTextoLongo(postElement, post)
-    }
-    else if (post.tipo === 'imagem') {
-        return postImagem(postElement, post)
-    }
-    // TODO implementar outros tipos de post
+function videoPost(postElement, post) {
+  const author = document.createElement("h2");
+  author.textContent = post.author;
+  postElement.appendChild(author);
+
+  const content = document.createElement("p");
+  content.textContent = post.content;
+  postElement.appendChild(content);
+
+  const video = document.createElement("video");
+  video.setAttribute("controls", "controls");
+  const source = document.createElement("source");
+  source.setAttribute("src", "files/" + post.video.src);
+  source.setAttribute("type", post.video.type);
+  video.appendChild(source);
+  postElement.appendChild(video);
 }
 
-function popularFeed(posts) {
-    console.log(posts);
-    const feedBody = document.getElementById('feed_body');
+function buildPost(postElement, post) {
+  postElement.setAttribute("id", "post_" + post.id);
+  if (post.type === "short_text") {
+    shortTextPost(postElement, post);
+    return;
+  }
 
-    posts.forEach(post => {
-        const postElement = document.createElement('div');
-        construirPost(postElement, post);
-        postElement.classList.add('post');
-        feedBody.appendChild(postElement);
-    });
+  if (post.type === "long_text") {
+    longTextPost(postElement, post);
+    return;
+  }
+
+  if (post.type === "image") {
+    imagePost(postElement, post);
+    return;
+  }
+
+  if (post.type === "link") {
+    linkPost(postElement, post);
+    return;
+  }
+
+  if (post.type === "video") {
+    videoPost(postElement, post);
+    return;
+  }
+
+  console.error("Unknown post type:", post.type);
 }
 
-function irParaResultado() {
-    // TODO passar estatisticas para pagina de resultado (localStorage?)
-    window.location.href = "../results/index.html";
+function populateFeed(posts) {
+  const feedBody = document.getElementById("feed_body");
+
+  posts.forEach((post) => {
+    const postElement = document.createElement("div");
+    buildPost(postElement, post);
+    postElement.classList.add("post");
+    feedBody.appendChild(postElement);
+  });
 }
 
+function goToResults() {
+  // TODO: pass statistics to results page (localStorage?)
+  window.location.href = "../results/index.html";
+}
 
-fetch('arquivos/conteudo_posts.json')
-.then(response => response.json()) // Parse JSON
-.then(data => popularFeed(data.posts)) // Work with JSON data
-.catch(error => console.error('Error fetching JSON:', error));
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("files/content_posts.json")
+    .then((response) => response.json())
+    .then((data) => populateFeed(data.posts))
+    .catch((error) => console.error("Error fetching JSON:", error));
+});
