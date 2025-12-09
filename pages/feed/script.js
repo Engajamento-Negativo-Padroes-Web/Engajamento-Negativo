@@ -47,21 +47,68 @@ function toggleImage(image, container, classification, blur) {
   }
 }
 
+function toggleLikePost(likeElement, dislikeElement, post) {
+  statistics.interaction[post.classification] += 1;
+
+  if (dislikeElement.disliked) {
+    dislikeElement.disliked = false;
+    dislikeElement.textContent = parseInt(dislikeElement.textContent) - 1;
+    statistics.reaction[post.classification] -= 1;
+  }
+
+  if (likeElement.liked) {
+    likeElement.liked = false;
+    likeElement.textContent = parseInt(likeElement.textContent) - 1;
+    statistics.reaction[post.classification] -= 1;
+    return;
+  }
+
+  likeElement.liked = true;
+  likeElement.textContent = parseInt(likeElement.textContent) + 1;
+  statistics.reaction[post.classification] += 1;
+}
+
+function toggleDislikePost(likeElement, dislikeElement, post) {
+  statistics.interaction[post.classification] += 1;
+
+  if (likeElement.liked) {
+    likeElement.liked = false;
+    likeElement.textContent = parseInt(likeElement.textContent) - 1;
+    statistics.reaction[post.classification] -= 1;
+  }
+
+  if (dislikeElement.disliked) {
+    dislikeElement.disliked = false;
+    dislikeElement.textContent = parseInt(dislikeElement.textContent) - 1;
+    statistics.reaction[post.classification] -= 1;
+    return;
+  }
+
+  dislikeElement.disliked = true;
+  dislikeElement.textContent = parseInt(dislikeElement.textContent) + 1;
+  statistics.reaction[post.classification] += 1;
+}
+
 function createInteractions(post) {
   const container = document.createElement("div");
   container.className = "post_interactions";
 
   const likes = document.createElement("span");
   likes.className = "interaction likes";
-  likes.textContent = `👍 ${post.likes}`;
+  likes.textContent = post.likes;
+  likes.onclick = () => toggleLikePost(likes, dislikes, post);
 
   const dislikes = document.createElement("span");
   dislikes.className = "interaction dislikes";
-  dislikes.textContent = `👎 ${post.dislikes}`;
+  dislikes.textContent = post.dislikes;
+  dislikes.onclick = () => toggleDislikePost(likes, dislikes, post);
 
   const comments = document.createElement("span");
   comments.className = "interaction comments";
-  comments.textContent = `💬 ${post.comments}`;
+  comments.textContent = post.comments;
+  comments.onclick = () => {
+    statistics.interaction[post.classification] += 1;
+  };
 
   container.appendChild(likes);
   container.appendChild(dislikes);
@@ -139,6 +186,8 @@ function linkPost(postElement, post) {
   link.setAttribute("target", "_blank");
   link.textContent = post.link.text;
   postElement.appendChild(link);
+
+  postElement.appendChild(createInteractions(post));
 }
 
 function videoPost(postElement, post) {
@@ -157,6 +206,8 @@ function videoPost(postElement, post) {
   source.setAttribute("type", post.video.type);
   video.appendChild(source);
   postElement.appendChild(video);
+
+  postElement.appendChild(createInteractions(post));
 }
 
 function buildPost(postElement, post) {
@@ -202,7 +253,8 @@ function populateFeed(posts) {
 
 function goToResults() {
   // TODO: pass statistics to results page (localStorage?)
-  window.location.href = "../results/index.html";
+  // window.location.href = "../results/index.html";
+  console.log(statistics);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

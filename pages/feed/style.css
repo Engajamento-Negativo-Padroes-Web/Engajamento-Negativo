@@ -69,11 +69,11 @@ img {
   /* TODO transition */
 }
 
-.post_interacoes {
+.post_interactions {
   margin-top: 20px;
 }
 
-.interacao {
+.interaction {
   border: 1px solid var(--color-accent);
   border-radius: 8px;
   margin: 0px 5px;
@@ -81,14 +81,26 @@ img {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.interacao:hover {
+.interaction:hover {
   background-color: var(--color-accent);
   cursor: pointer;
 }
 
-#botao_resultado {
+#result-button {
   margin: 15px auto 130px auto;
   display: block;
+}
+
+.likes::before {
+  content: "👍 ";
+}
+
+.dislikes::before {
+  content: "👎 ";
+}
+
+.comments::before {
+  content: "💬 ";
 }
 
 video {

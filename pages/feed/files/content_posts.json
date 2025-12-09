@@ -3,7 +3,7 @@
     {
       "id": 1,
       "type": "short_text",
-      "autor": "João Silva",
+      "author": "João Silva",
       "content": "Que dia lindo! ☀️",
       "likes": 42,
       "dislikes": 2,
@@ -13,7 +13,7 @@
     {
       "id": 2,
       "type": "image",
-      "autor": "Pedro Costa",
+      "author": "Pedro Costa",
       "content": "Ninguém me da credito nessa joça. Novo dashboard finalizado, metas atingidas, prazos cumpridos, e nada, NADA, NADAAAAA",
       "image": {
         "src": "empresa.png",
@@ -28,7 +28,7 @@
     {
       "id": 3,
       "type": "video",
-      "autor": "Ana Oliveira",
+      "author": "Ana Oliveira",
       "content": "Gatinho Brincando Com Seu Mouse De Brinquedo",
       "video": {
         "src": "gatinho.mp4",
@@ -42,7 +42,7 @@
     {
       "id": 4,
       "type": "long_text",
-      "autor": "Maria Santos",
+      "author": "Maria Santos",
       "content": "Após meses de dedicação e esforço, finalmente consegui terminar meu projeto de conclusão de curso. Foi uma jornada desafiadora, mas muito gratificante. Aprendi não apenas sobre a tecnologia, mas também sobre persistência e trabalho em equipe. Agradeço a todos que me apoiaram nesta trajetória! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at volutpat neque. Mauris porttitor quis massa non imperdiet. Maecenas ultrices volutpat est non vestibulum. Sed vel lorem ex. Sed cursus venenatis vestibulum. Suspendisse suscipit neque quis cursus facilisis. Aenean in enim in massa imperdiet consequat. Quisque velit leo, gravida at libero eu, condimentum porttitor ligula. Vivamus velit lacus, dignissim ac erat vel, vulputate lobortis justo. Donec cursus justo enim, eu blandit urna vestibulum a. Suspendisse potenti.",
       "likes": 128,
       "dislikes": 10,
@@ -52,7 +52,7 @@
     {
       "id": 5,
       "type": "link",
-      "autor": "Carlos Mendes",
+      "author": "Carlos Mendes",
       "content": "Já estava na hora mesmo, esse mundo não tem mais salvação, principalmente com essa geração TikTok",
       "link": {
         "url": "https://theonion.com/breaking-the-darkness-returns/",
@@ -67,7 +67,7 @@
     {
       "id": 7,
       "type": "image",
-      "autor": "Jose Correia",
+      "author": "Jose Correia",
       "content": "Que desastre! Inacreditável que esse tipo de coisa ainda acontece hoje em dia 😡",
       "image": {
         "src": "desastre.png",
