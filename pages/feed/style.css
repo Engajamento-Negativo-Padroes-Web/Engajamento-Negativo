@@ -45,8 +45,15 @@ img {
   margin-bottom: 20px;
   width: 500px;
   gap: 10px;
-  display: flex;
+  display: none;
   flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.post.active {
+  display: block;
+  opacity: 1;
 }
 
 .blur {

@@ -1,3 +1,7 @@
+let globalPosts = [];
+let currentIndex = 0;
+let scrollCooldown = false;
+
 const statistics = {
   reaction: {
     positive: 0,
@@ -15,6 +19,109 @@ const statistics = {
     neutral: 0,
   },
 };
+
+function showPost(index) {
+  const postsElements = document.querySelectorAll(".post");
+
+  if (index < 0) {
+    index = 0;
+  }
+
+  if (index >= postsElements.length) {
+    index = postsElements.length - 1;
+  }
+
+  currentIndex = index;
+
+  postsElements.forEach((el, i) => {
+    if (i === currentIndex) {
+      el.classList.add("active");
+      return;
+    }
+
+    el.classList.remove("active");
+    const video = el.querySelector("video");
+
+    if (video) {
+      video.pause();
+    }
+  });
+
+  updateResultsButtonVisibility();
+}
+
+function updateResultsButtonVisibility() {
+  const resultsButton = document.getElementById("result-button");
+
+  if (!resultsButton) {
+    return;
+  }
+
+  if (currentIndex === globalPosts.length - 1) {
+    resultsButton.style = "display: block;";
+    return;
+  }
+
+  resultsButton.style = "display: none;";
+}
+
+function nextPost() {
+  if (currentIndex < globalPosts.length - 1) {
+    showPost(currentIndex + 1);
+  }
+}
+
+function prevPost() {
+  if (currentIndex > 0) {
+    showPost(currentIndex - 1);
+  }
+}
+
+function startTrackingTime() {
+  setInterval(() => {
+    if (globalPosts.length > 0) {
+      const currentPost = globalPosts[currentIndex];
+      const classification = currentPost.classification;
+
+      if (statistics.time[classification] !== undefined) {
+        statistics.time[classification] += 1;
+      }
+    }
+  }, 1000);
+}
+
+function setupNavigationListeners() {
+  const SCROLL_DEBOUNCE_MS = 300;
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      nextPost();
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      prevPost();
+    }
+  });
+
+  window.addEventListener(
+    "wheel",
+    (e) => {
+      if (scrollCooldown) {
+        return;
+      }
+
+      scrollCooldown = true;
+      setTimeout(() => {
+        scrollCooldown = false;
+      }, SCROLL_DEBOUNCE_MS);
+
+      if (e.deltaY > 0) {
+        nextPost();
+      } else {
+        prevPost();
+      }
+    },
+    { passive: false }
+  );
+}
 
 function toggleContent(content, button, classification) {
   statistics.interaction[classification] += 1;
@@ -214,6 +321,8 @@ function videoPost(postElement, post) {
 
 function buildPost(postElement, post) {
   postElement.setAttribute("id", "post_" + post.id);
+  postElement.classList.add("post");
+
   if (post.type === "short_text") {
     shortTextPost(postElement, post);
     return;
@@ -246,11 +355,12 @@ function populateFeed(posts) {
   const feedBody = document.getElementById("feed_body");
 
   posts.forEach((post) => {
-    const postElement = document.createElement("div");
+    const postElement = document.createElement("section");
     buildPost(postElement, post);
-    postElement.classList.add("post");
     feedBody.appendChild(postElement);
   });
+
+  showPost(0);
 }
 
 function goToResults() {
@@ -262,6 +372,11 @@ function goToResults() {
 document.addEventListener("DOMContentLoaded", () => {
   fetch("files/content_posts.json")
     .then((response) => response.json())
-    .then((data) => populateFeed(data.posts))
+    .then((data) => {
+      globalPosts = data.posts;
+      populateFeed(globalPosts);
+      setupNavigationListeners();
+      startTrackingTime();
+    })
     .catch((error) => console.error("Error fetching JSON:", error));
 });
