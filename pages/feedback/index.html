@@ -38,12 +38,20 @@
         <p>
           Sinta-se à vontade para compartilhar comentários, sugestões ou
           críticas construtivas para a nossa equipe. Ao preencher o formulário,
-          redirecionaremos você para o seu cliente de email padrão, onde um
-          email com nossos endereços como destinatários será gerado.
+          redirecionaremos você para o seu cliente de email padrão.
         </p>
       </section>
 
       <form>
+        <label for="feedback-type">Tipo de Mensagem</label>
+        <select id="feedback-type" name="type">
+          <option value="" disabled selected>Selecione uma opção</option>
+          <option value="Sugestão">Sugestão</option>
+          <option value="Crítica">Crítica</option>
+          <option value="Elogio">Elogio</option>
+          <option value="Outro">Outro</option>
+        </select>
+
         <label for="feedback-subject">Assunto</label>
         <input
           type="text"
@@ -51,6 +59,7 @@
           name="subject"
           placeholder="Assunto"
         />
+
         <label for="feedback-body">Corpo da Mensagem</label>
         <textarea
           id="feedback-body"

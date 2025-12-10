@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mente Conectada - Feed</title>
+
+    <link rel="stylesheet" href="../../assets/css/constants.css" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="../../assets/js/main.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <button id="btn-abortar" onclick="sairDoExperimentoCedo()" title="Sair do Experimento">
+      ✕ Sair
+    </button>
+
+    <header>
+      <div id="logo">
+        <a href="../home/index.html">Mente Conectada</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../about-us/index.html">Sobre Nós</a></li>
+          <li><a href="../feedback/index.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="feed_body"></section>
+      
+      <section class="snap-section footer-trigger">
+        <button id="botao_resultado" type="button" onclick="irParaResultado()">
+          Finalizar e Ver Resultado
+        </button>
+      </section>
+    </main>
+
+    <footer>
+    <p>&copy; 2025 Mente Conectada. Todos os direitos reservados.</p>
+    </footer>   
+  </body>
+</html>

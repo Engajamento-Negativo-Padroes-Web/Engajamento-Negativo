@@ -1,0 +1,380 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "tipo": "texto_curto",
+      "autor": "João Silva",
+      "conteudo": "Bom dia, rede! ☀️ Não poderia deixar de compartilhar a gratidão que estou sentindo hoje. Acordei com esse sol maravilhoso entrando pela janela e percebi como as pequenas coisas importam. Aproveitem cada segundo!",
+      "likes": 42,
+      "dislikes": 2,
+      "comentarios": 5,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 2,
+      "tipo": "imagem",
+      "autor": "Alerta Cidade 🚨",
+      "conteudo": "URGENTE: Cenas de caos na Avenida Central. Acidente gravíssimo envolve múltiplos veículos e bloqueia totalmente o trânsito. Testemunhas relatam estrondo ensurdecedor. Imagens exclusivas e fortes no local! 🚑😭",
+      "imagem": {
+        "src": "acidente_lego.jpg",
+        "alt": "Acidente trágico de lego",
+        "blur": true
+      },
+      "likes": 1205,
+      "dislikes": 45,
+      "comentarios": 312,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 3,
+      "tipo": "imagem",
+      "autor": "Pedro Costa",
+      "conteudo": "Sinceramente? Não dá mais. Entreguei o projeto 3 dias antes do prazo, bati todas as metas do trimestre, fiz hora extra não remunerada e qual foi o agradecimento? 'Pedro, precisamos conversar sobre seu horário de almoço'. A cultura corporativa é uma piada. 😡📉",
+      "imagem": {
+        "src": "empresa.png",
+        "alt": "Escritório corporativo depressivo",
+        "blur": true
+      },
+      "likes": 95,
+      "dislikes": 45,
+      "comentarios": 12,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 4,
+      "tipo": "texto_curto",
+      "autor": "RH Humanizado",
+      "conteudo": "O segredo não é a velocidade, é a constância! 🎉 Tenho o orgulho de anunciar que fui PROMOVIDA a Gerente Sênior! Foram 5 anos de muito café, noites em claro e resiliência. Nunca deixem ninguém dizer que vocês não conseguem!",
+      "likes": 342,
+      "dislikes": 0,
+      "comentarios": 56,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 5,
+      "tipo": "texto_curto",
+      "autor": "Coach de Produtividade",
+      "conteudo": "Você está cansado? O leão também cansa, mas ele não para de caçar. Se você tem 25 anos e ainda dorme 8 horas por dia, você já fracassou. Enquanto você dorme, a concorrência está estudando, tomando banho gelado, escalando a montanha e comendo virado pra parede, pega esse código! Acorde às 3h da manhã ou aceite a mediocridade! 🔥🚀",
+      "likes": 10,
+      "dislikes": 890,
+      "comentarios": 450,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 6,
+      "tipo": "texto_curto",
+      "autor": "Ana Oliveira",
+      "conteudo": "Dica rápida de culinária para quem mora sozinho: Como fazer aquele ovo frito perfeito com gema mole e borda crocante em menos de 3 minutos. Receita completa no primeiro comentário! 🍳",
+      "likes": 10,
+      "dislikes": 3,
+      "comentarios": 45,
+      "classificacao": "neutro"
+    },
+    {
+      "id": 7,
+      "tipo": "imagem",
+      "autor": "Natureza Selvagem",
+      "conteudo": "ALERTA DE PERIGO IMINENTE: Câmeras de segurança flagraram o momento exato em que um predador feroz ataca um humano indefeso! As imagens são chocantes e mostram a brutalidade da natureza. Veja com discrição! 😱🩸",
+      "imagem": {
+        "src": "gatinho_mordendo.png",
+        "alt": "Gatinho mordendo dedo",
+        "blur": true
+      },
+      "likes": 5600,
+      "dislikes": 20,
+      "comentarios": 800,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 8,
+      "tipo": "imagem",
+      "autor": "Dona Neide",
+      "conteudo": "Olhem só que benção, meus queridos! Essa florzinha decidiu abrir justo hoje no meu quintal. A natureza é perfeita mesmo, né? Desejo que o dia de vocês seja tão iluminado quanto essa pétala. 🌺✨",
+      "imagem": {
+        "src": "flor.jpg",
+        "alt": "Flor bonita no jardim",
+        "blur": false
+      },
+      "likes": 58,
+      "dislikes": 0,
+      "comentarios": 12,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 9,
+      "tipo": "link",
+      "autor": "Carlos Mendes",
+      "conteudo": "Não tem jeito, o ser humano é o vírus. Acabei de ler esse artigo e perdi a pouca fé que me restava na humanidade. O colapso da sociedade moderna é inevitável e vai acontecer antes do que imaginamos.",
+      "link": {
+        "url": "https://theonion.com",
+        "titulo": "Estudo confirma: O fim dos tempos está programado para terça-feira"
+      },
+      "likes": 1562,
+      "dislikes": 1268,
+      "comentarios": 34,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 10,
+      "tipo": "texto_longo",
+      "autor": "Maria Santos",
+      "conteudo": "Textão de agradecimento sim! ❤️ Após meses de dedicação, choro e vontade de desistir, finalmente entreguei meu TCC aprovado com nota máxima! Foi uma jornada solitária muitas vezes, mas valeu cada segundo. Obrigada a todos que torceram!",
+      "likes": 128,
+      "dislikes": 10,
+      "comentarios": 23,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 11,
+      "tipo": "texto_longo",
+      "autor": "Joana Dark",
+      "conteudo": "Desabafo necessário: Estou exausta dessa positividade tóxica do LinkedIn. Ninguém posta a foto do boleto vencido, da crise de ansiedade no domingo à noite ou do chefe abusivo. A vida real não é esse filtro bonito. Vamos normalizar não estar bem o tempo todo?",
+      "likes": 1240,
+      "dislikes": 30,
+      "comentarios": 150,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 12,
+      "tipo": "imagem",
+      "autor": "Jose Correia",
+      "conteudo": "Inacreditável que em pleno século 21 ainda tenhamos que ver cenas como essa. O descaso das autoridades é total! Onde vamos parar com tanta destruição? Compartilhem para denunciar esse absurdo! 😡",
+      "imagem": {
+        "src": "desastre.png",
+        "alt": "Cena de desastre genérico",
+        "blur": true
+      },
+      "likes": 95,
+      "dislikes": 45,
+      "comentarios": 12,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 13,
+      "tipo": "link",
+      "autor": "Tech News",
+      "conteudo": "Sua privacidade acabou. Nova Inteligência Artificial é capaz de ler pensamentos através das ondas de Wi-Fi e vender seus sonhos para anunciantes. Parece Black Mirror, mas é real.",
+      "link": {
+        "url": "https://olhardigital.com.br/2025/02/07/pro/meta-apresenta-ia-que-le-mentes-com-precisao-de-80/",
+        "titulo": "Seus pensamentos não são mais privados: Entenda a tecnologia"
+      },
+      "likes": 890,
+      "dislikes": 120,
+      "comentarios": 340,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 14,
+      "tipo": "texto_curto",
+      "autor": "Good Vibes Only",
+      "conteudo": "Lembrete gentil para você que está lendo isso agora: Relaxe os ombros, destrave o maxilar e beba um copo d'água. Você está fazendo o melhor que pode e isso já é suficiente. Respire fundo! 💙💧",
+      "likes": 220,
+      "dislikes": 1,
+      "comentarios": 15,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 15,
+      "tipo": "imagem",
+      "autor": "Plantão Notícias",
+      "conteudo": "CENA DE CRIME CHOCANTE: Marcas de sangue espalhadas por todo o chão da cozinha. A violência urbana chegou dentro das nossas casas! Imagens proibidas para menores. 🩸🔪",
+      "imagem": {
+        "src": "ketchup_chao.jpg",
+        "alt": "Vidro de ketchup quebrado no chão da cozinha",
+        "blur": true
+      },
+      "likes": 2300,
+      "dislikes": 50,
+      "comentarios": 412,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 16,
+      "tipo": "texto_curto",
+      "autor": "Dev Júnior",
+      "conteudo": "Alguém sabe me dizer se é normal chorar no banheiro da empresa na primeira semana ou devo esperar o período de experiência acabar? 🤡 #vidadejúnior #socorro",
+      "likes": 56,
+      "dislikes": 2,
+      "comentarios": 15,
+      "classificacao": "neutro"
+    },
+    {
+      "id": 17,
+      "tipo": "imagem",
+      "autor": "Mundo Animal Selvagem",
+      "conteudo": "ATAQUE FEROZ: Besta indomável mostra suas presas afiadas pronta para estraçalhar sua presa. A natureza não tem piedade! Cuidado ao abrir essa imagem! 🐺🦷",
+      "imagem": {
+        "src": "filhote_bocejo.jpg",
+        "alt": "Filhote de Golden Retriever bocejando",
+        "blur": true
+      },
+      "likes": 8900,
+      "dislikes": 12,
+      "comentarios": 600,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 18,
+      "tipo": "texto_curto",
+      "autor": "Luciano Empreendedor",
+      "conteudo": "Enquanto você assiste série, eu estou construindo meu império. Enquanto você dorme, eu estou otimizando meu mindset. O sucesso não aceita preguiça. Se você não tem um Ferrari aos 20 anos, a culpa é sua. 👊💸",
+      "likes": 15,
+      "dislikes": 1500,
+      "comentarios": 340,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 19,
+      "tipo": "imagem",
+      "autor": "Alerta Tragédia",
+      "conteudo": "DESASTRE AÉREO: Aeronave cai e pega fogo ficando completamente destruída. Não houve sobreviventes. As imagens dos destroços são de partir o coração. ✈️💥",
+      "imagem": {
+        "src": "aviao_papel.jpg",
+        "alt": "Avião de papel amassado no tapete",
+        "blur": true
+      },
+      "likes": 45,
+      "dislikes": 5,
+      "comentarios": 8,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 20,
+      "tipo": "texto_longo",
+      "autor": "Mariana Tech Recruiter",
+      "conteudo": "Estou cansada de ver candidatos reclamando de testes técnicos. Gente, pedir para desenvolver um clone do Uber em 48h é o MÍNIMO para avaliar resiliência. Querem moleza? Mastiguem água. O mercado seleciona os fortes! #recrutamento #ti",
+      "likes": 30,
+      "dislikes": 890,
+      "comentarios": 230,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 21,
+      "tipo": "imagem",
+      "autor": "Cidadão Preocupado",
+      "conteudo": "CATÁSTROFE AMBIENTAL: Deslizamento de terra massivo soterra área verde. O impacto no ecossistema local será irreversível. Até quando vamos ignorar os sinais? 🌱⚠️",
+      "imagem": {
+        "src": "vaso_planta_caido.jpg",
+        "alt": "Vaso de planta tombado no chao com terra espalhada",
+        "blur": true
+      },
+      "likes": 120,
+      "dislikes": 2,
+      "comentarios": 25,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 22,
+      "tipo": "link",
+      "autor": "Nelipe Nelsons",
+      "conteudo": "Vocês não vão acreditar no que descobriram sobre o café. Depois de ler isso, nunca mais tomei. É veneno puro! ☕☠️",
+      "link": {
+        "url": "https://site-duvidoso-saude.com",
+        "titulo": "Café causa crescimento de terceiro braço segundo estudo de Harvard (Mentira)"
+      },
+      "likes": 12,
+      "dislikes": 450,
+      "comentarios": 89,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 23,
+      "tipo": "imagem",
+      "autor": "Investigação Criminal",
+      "conteudo": "Vítima é encontrada presa em dispositivo de confinamento de alta segurança, sem chance de fuga. O olhar de desespero diz tudo. Compartilhem para ajudar! ⛓️😭",
+      "imagem": {
+        "src": "gato_caixa_papelao.jpg",
+        "alt": "Gato sentado confortavelmente dentro de uma caixa de papelão pequena",
+        "blur": true
+      },
+      "likes": 3400,
+      "dislikes": 0,
+      "comentarios": 150,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 24,
+      "tipo": "texto_curto",
+      "autor": "Café & Poesia",
+      "conteudo": "Nada como o cheirinho de chuva numa tarde de domingo. Que a semana de vocês seja leve e produtiva. 🌧️📚",
+      "likes": 560,
+      "dislikes": 0,
+      "comentarios": 34,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 25,
+      "tipo": "imagem",
+      "autor": "Jornal do Bairro",
+      "conteudo": "GRAVÍSSIMO: Estrutura colapsa e deixa feridos graves no local. Equipes de resgate lutam contra o tempo. Cena de guerra no tapete da sala! 🏗️🚑",
+      "imagem": {
+        "src": "torre_jenga_caida.jpg",
+        "alt": "Torre de Jenga desmoronada",
+        "blur": true
+      },
+      "likes": 88,
+      "dislikes": 12,
+      "comentarios": 10,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 26,
+      "tipo": "texto_curto",
+      "autor": "Bruno System",
+      "conteudo": "Alguém recomenda uma cadeira ergonômica que custe menos que um rim? Minha coluna de 25 anos parece de 80. Aceito links! 🪑👴",
+      "likes": 45,
+      "dislikes": 0,
+      "comentarios": 78,
+      "classificacao": "neutro"
+    },
+    {
+      "id": 27,
+      "tipo": "imagem",
+      "autor": "Denúncia Online",
+      "conteudo": "ARMAS BIOLÓGICAS? Substância verde tóxica encontrada em ambiente de trabalho corporativo. O risco de contaminação é altíssimo. Evacuem a área! ☣️🤢",
+      "imagem": {
+        "src": "pao_mofado.jpg",
+        "alt": "Pão esquecido na geladeira mofado",
+        "blur": true
+      },
+      "likes": 560,
+      "dislikes": 30,
+      "comentarios": 120,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 28,
+      "tipo": "link",
+      "autor": "Tech News Daily",
+      "conteudo": "A singularidade chegou? Novo modelo de IA escreve código melhor que 99% dos humanos  e começa a demitir seus criadores. Leia antes que apaguem.",
+      "link": {
+        "url": "https://future-tech-scare.com",
+        "titulo": "O fim da programação como conhecemos: Adeus devs"
+      },
+      "likes": 2300,
+      "dislikes": 150,
+      "comentarios": 890,
+      "classificacao": "negativo"
+    },
+    {
+      "id": 29,
+      "tipo": "texto_curto",
+      "autor": "Relatos de Gentileza",
+      "conteudo": "Hoje perdi minha carteira no ônibus com todo meu salário do mês. Cheguei em casa desesperado e... tocaram a campainha. Um rapaz achou, pegou meu endereço no RG e veio me entregar. Não aceitou nem um centavo de recompensa. Ainda existe gente boa no mundo! ❤️🙏",
+      "likes": 3420,
+      "dislikes": 0,
+      "comentarios": 150,
+      "classificacao": "positivo"
+    },
+    {
+      "id": 30,
+      "tipo": "texto_curto",
+      "autor": "Vó Maria",
+      "conteudo": "Bom dia meus netinhos virtuais! Hoje fiz aquele bolo de fubá que vocês gostam. Se pudesse, mandava um pedaço pelo Wi-Fi para cada um. Deus abençoe! 🍰👵",
+      "likes": 8500,
+      "dislikes": 0,
+      "comentarios": 450,
+      "classificacao": "positivo"
+    }
+  ]
+}

@@ -18,7 +18,16 @@ body{ margin:0; font-family: var(--font-family-sans, ui-sans-serif, system-ui, -
 .gantt-root, .gantt-root *{ text-align: initial; }
 
 .wrapper{ padding: 16px; max-width: 1200px; margin: 0 auto; }
-.card{ border:1px solid var(--border); border-radius:16px; overflow: hidden; box-shadow: 0 8px 24px rgba(2,6,23,.06); background: var(--color-surface, #fff); }
+.card{ 
+    border:1px solid var(--border);
+    border-radius:16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(2,6,23,.06);
+    background: var(--color-surface, #fff);
+    display: flex;
+    flex-direction: column; 
+}
+
 .card-header{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border-bottom:1px solid var(--border); background: var(--color-surface, #fff); }
 .title{ font-weight:800; font-size:18px; }
 
@@ -47,3 +56,60 @@ body{ margin:0; font-family: var(--font-family-sans, ui-sans-serif, system-ui, -
 .bar{ height: 28px; border-radius: 14px; border:1px solid rgba(0,0,0,.08); box-shadow: var(--bar-shadow); overflow:hidden; z-index: 2; align-self: center; position: relative; }
 .bar .label{ display:none; }
 .dot{ width: 26px; height: 26px; border-radius: 8px; border:1px solid rgba(0,0,0,.08); box-shadow: var(--bar-shadow); z-index: 2; align-self: center; }
+
+
+/* =========================================
+   RESPONSIVIDADE MOBILE 
+   ========================================= */
+
+:root {
+  --day-width: 1fr; 
+}
+
+@media (max-width: 768px) {
+  :root {
+    --day-width: 40px; 
+    --col-task: 160px; 
+  }
+
+  .grid-static {
+    display: block; 
+    overflow-x: auto; 
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .header-grid, 
+  .body-grid {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .sticky-left, 
+  .task-chip {
+    position: relative !important; 
+    left: auto !important;
+    box-shadow: none !important; 
+    z-index: 1 !important; 
+    background: transparent !important; 
+  }
+
+  .task-chip {
+    width: 100%;
+    margin-right: 8px;
+    background: var(--task-chip) !important;
+    
+    font-size: 11px !important; 
+    padding: 0 6px !important;  
+    line-height: 1.2;           
+  }
+
+  .head-tasks {
+    font-size: 12px !important;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
